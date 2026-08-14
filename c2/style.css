@@ -113,6 +113,9 @@ header h1 img{
   box-shadow:0 0 6px var(--gold-400);
   transition:width 0.25s ease;
 }
+.plans {
+  margin-right: auto;
+}
 
 .nav-link:hover{color:var(--gold-bright);text-shadow:0 0 10px rgba(0,229,199,0.4);}
 .link-nav .nav-link:hover::after{width:100%;}
@@ -382,7 +385,7 @@ header h1 img{
 
 .list-size p:first-child{
   font-size:0.8rem;
-  color:var(--stone-300);
+  color: #fff;
   font-family:var(--font-mono);
   letter-spacing:0.04em;
 }
@@ -423,6 +426,7 @@ header h1 img{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap:1px;
+  border-radius: 10px;
   background:var(--stone-700);
   border:var(--edge);
 }
@@ -479,7 +483,7 @@ header h1 img{
   text-align:center;
   background:var(--stone-900);
   border:1px solid rgba(0,229,199,0.4);
-  border-radius:var(--radius);
+  border-radius: 10px;
   position:relative;
   overflow:hidden;
   box-shadow:0 0 50px rgba(0,229,199,0.08);
