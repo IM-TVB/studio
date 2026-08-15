@@ -282,6 +282,32 @@ header h1 img{
   gap:20px;
 }
 
+.plan-grid-10{
+  grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.plan-view.featured{
+  border-color:var(--gold-400);
+  box-shadow:0 0 24px rgba(0,229,199,0.12);
+  position:relative;
+}
+
+.plan-view.featured::before{
+  content:"POPULAR";
+  position:absolute;
+  top:-1px;right:-1px;
+  font-family:var(--font-mono);
+  font-size:0.62rem;
+  letter-spacing:0.1em;
+  color:var(--stone-950);
+  background:var(--gold-400);
+  padding:4px 10px;
+  border-radius:0 var(--radius) 0 var(--radius);
+  box-shadow:0 0 14px rgba(0,229,199,0.4);
+}
+
+.plan-listing p{max-width:640px;}
+
 .plan-view {
   background: rgba(10, 15, 16, 0.6);
   backdrop-filter: blur(6px);
