@@ -68,10 +68,6 @@
                     Order via Messenger
                 </a>
 
-                <a href="#" id="email-btn" class="checkout-btn email-btn">
-                    Order via Email
-                </a>
-
                 <p class="actions-note">Response time is usually within a few hours. For urgent requests, Discord or Telegram is fastest.</p>
             </div>
         </div>
@@ -125,7 +121,6 @@
             var DISCORD_INVITE = "https://discord.gg/your-invite-code";
             var TELEGRAM_USERNAME = "your_telegram_username";
             var MESSENGER_USERNAME = "your.page.username";
-            var SUPPORT_EMAIL = "support@angkorhosting.store";
 
             if(!plan){
                 document.getElementById('no-plan-notice').style.display = 'block';
@@ -133,7 +128,6 @@
                 document.getElementById('discord-btn').href = DISCORD_INVITE;
                 document.getElementById('telegram-btn').href = "https://t.me/" + TELEGRAM_USERNAME;
                 document.getElementById('messenger-btn').href = "https://m.me/" + MESSENGER_USERNAME;
-                document.getElementById('email-btn').href = "mailto:" + SUPPORT_EMAIL + "?subject=" + encodeURIComponent("Angkor Hosting — New order");
                 return;
             }
 
@@ -143,24 +137,6 @@
             document.getElementById('plan-cpu').textContent = cpu || '—';
             document.getElementById('plan-disk').textContent = disk || '—';
             document.title = plan + " — Checkout — Angkor Hosting";
-
-            var summaryLines = [
-                "New order request",
-                "",
-                "Plan: " + plan,
-                "Price: " + (price.indexOf('$') === 0 ? price : ('$' + price)) + "/mo",
-                "RAM: " + (ram || '—'),
-                "CPU: " + (cpu || '—'),
-                "Disk: " + (disk || '—')
-            ].join("\n");
-
-            var mailSubject = "Angkor Hosting order — " + plan + " plan";
-            var mailBody = summaryLines + "\n\nPlease let me know the next steps to get this set up.";
-
-            document.getElementById('email-btn').href =
-                "mailto:" + SUPPORT_EMAIL +
-                "?subject=" + encodeURIComponent(mailSubject) +
-                "&body=" + encodeURIComponent(mailBody);
 
             document.getElementById('discord-btn').href = DISCORD_INVITE;
 
