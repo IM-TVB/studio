@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial — Angkor Hosting</title>
+    <link rel="stylesheet" href="/c2/style.css">
+    <link rel="shortcut icon" href="/img/brand.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="/"><h1><img src="/img/brand.png">Angkor Hosting</h1></a>
+        <div class="link-nav display-flex">
+            <a href="/#plan" class="plans nav-link">Plan</a>
+            <a href="/plan/mc/" class="minecraft-server nav-link" style="color:rgb(0, 255, 0);">Minecraft</a>
+            <a href="" class="website nav-link"></a>
+        </div>
+        <div class="auth display-flex">
+            <a href="/" class="login nav-link">Home</a>
+        </div>
+    </header>
+
+    <main class="tutorial-page">
+        <p class="legal-label">Guide</p>
+        <h1>Getting started with your server</h1>
+        <p class="intro">From checkout to your first login — here's everything you need to get a Minecraft server running on Angkor Hosting in a few minutes.</p>
+
+        <div class="tutorial-steps">
+            <div class="tutorial-step">
+                <span class="step-num">01</span>
+                <div>
+                    <h2>Choose a plan</h2>
+                    <p>Head to the <a href="/plan/mc/">Minecraft plans</a> page and pick a tier based on your player count and mod list. As a rough guide:</p>
+                    <ul>
+                        <li>1–4 players, vanilla or light plugins — 1–2GB RAM</li>
+                        <li>5–15 players, plugin survival or SMP — 4–6GB RAM</li>
+                        <li>Modded (Forge/Fabric) or 15+ players — 8GB+ RAM</li>
+                    </ul>
+                    <p>You can always upgrade later without losing your world data.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <span class="step-num">02</span>
+                <div>
+                    <h2>Complete checkout</h2>
+                    <p>Select your billing cycle and complete payment. Your server is provisioned automatically — you'll receive a confirmation email with a link to your control panel within a couple of minutes.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <span class="step-num">03</span>
+                <div>
+                    <h2>Log in to the control panel</h2>
+                    <p>Use the credentials from your confirmation email to log in. From the dashboard, click your server to open its management page — you'll see console output, resource usage, and file access.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <span class="step-num">04</span>
+                <div>
+                    <h2>Pick your version and server type</h2>
+                    <p>Open the <strong>Startup</strong> tab and choose your Minecraft version and server jar — <code>Vanilla</code>, <code>Paper</code>, <code>Spigot</code>, <code>Forge</code>, or <code>Fabric</code>. Paper is recommended for most survival and plugin servers since it's optimized for performance.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <span class="step-num">05</span>
+                <div>
+                    <h2>Start the server</h2>
+                    <p>Hit <strong>Start</strong> from the console tab. The first boot downloads the server jar and generates your world, so it may take a minute or two longer than future restarts. Watch the console for <code>Done!</code> to know it's ready.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <span class="step-num">06</span>
+                <div>
+                    <h2>Connect and invite players</h2>
+                    <p>Copy your server's IP address from the panel overview and share it with your friends. In Minecraft, go to <strong>Multiplayer → Add Server</strong> and paste the address to connect.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <span class="step-num">07</span>
+                <div>
+                    <h2>Install plugins or mods (optional)</h2>
+                    <p>Use the <strong>File Manager</strong> to upload <code>.jar</code> plugin files into the <code>plugins</code> folder (Paper/Spigot) or <code>mods</code> folder (Forge/Fabric), then restart the server for them to load.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <span class="step-num">08</span>
+                <div>
+                    <h2>Set up backups</h2>
+                    <p>Open the <strong>Backups</strong> tab and create a manual backup, or schedule automatic ones. We recommend backing up before any major plugin or version change.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tutorial-faq">
+            <h3>Common questions</h3>
+
+            <div class="faq-item">
+                <h4>Can I switch plans later?</h4>
+                <p>Yes — you can upgrade or downgrade your plan at any time from your account dashboard. Your world files and configuration carry over automatically.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How do I change my server's difficulty or game mode?</h4>
+                <p>Open the <strong>File Manager</strong>, edit <code>server.properties</code>, and update the <code>difficulty</code> or <code>gamemode</code> values, then restart the server for changes to take effect.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>My server won't start — what should I check first?</h4>
+                <p>Check the console for the error message, confirm your selected Minecraft version matches your server jar, and make sure any recently added plugins or mods are compatible with your server version.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I run a custom modpack?</h4>
+                <p>Yes — select Forge or Fabric as your server type, then upload your modpack's server files through the File Manager, or use the panel's modpack installer if your plan supports it.</p>
+            </div>
+        </div>
+
+        <div class="legal-contact">
+            <p>Still stuck? Reach out at <a href="mailto:support@angkorhosting.com">support@angkorhosting.com</a> and we'll help you get sorted.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="angkor-hosting">
+            <a href="mailto:support@angkorhosting.com" class="footer-email">support@angkorhosting.store</a>
+            <div class="socials">
+                <a href="" class="social-link discord" aria-label="Discord"></a>
+                <a href="" class="social-link twitter" aria-label="Twitter / X"></a>
+                <a href="" class="social-link youtube" aria-label="YouTube"></a>
+                <a href="" class="social-link github" aria-label="GitHub"></a>
+            </div>
+        </div>
+        <div class="product">
+            <h4>Product</h4>
+            <ul>
+                <li><a href="/plan/mc/">Minecraft Hosting</a></li>
+                <li><a href="/#plan">Web Hosting</a></li>
+                <li><a href="/#plan">Pricing</a></li>
+            </ul>
+        </div>
+        <div class="support">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="/tutorial.html">Help Center</a></li>
+                <li><a href="#">Status</a></li>
+                <li><a href="mailto:support@angkorhosting.com">Contact</a></li>
+            </ul>
+        </div>
+        <div class="company">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/terms/">Terms</a></li>
+                <li><a href="/privacy/">Privacy</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
