@@ -317,12 +317,31 @@ header h1 img{
   font-family:var(--font-display);
   font-weight:600;
   font-size:1.3rem;
-  padding-bottom:16px;
-  border-bottom:1px solid var(--stone-700);
   background: linear-gradient(to right, rgb(0, 255, 0) 0%, rgb(0, 204, 255) 15%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.plan-view .price{
+  font-family:var(--font-mono);
+  font-size:1.9rem;
+  font-weight:600;
+  color:var(--sand-100);
+  padding-bottom:16px;
+  margin-bottom:2px;
+  border-bottom:1px solid var(--stone-700);
+}
+
+.plan-view .price span{
+  font-size:0.75rem;
+  font-weight:400;
+  color:var(--stone-300);
+  letter-spacing:0.02em;
+}
+
+.plan-view.more .price{
+  font-size:1.3rem;
 }
 
 .sec {
