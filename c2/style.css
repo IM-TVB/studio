@@ -327,10 +327,24 @@ header h1 img{
   font-family:var(--font-mono);
   font-size:1.9rem;
   font-weight:600;
-  color:var(--sand-100);
   padding-bottom:16px;
   margin-bottom:2px;
   border-bottom:1px solid var(--stone-700);
+  background:linear-gradient(90deg,
+    #00e5c7 0%,
+    #00b8a0 12.5%,
+    #5dfce3 25%,
+    #3ddcff 37.5%,
+    #7c8cff 50%,
+    #a855f7 62.5%,
+    #d066f0 75%,
+    #5dfce3 87.5%,
+    #00e5c7 100%);
+  background-size:300% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:price-run 7s linear infinite;
 }
 
 .plan-view .price span{
@@ -338,6 +352,16 @@ header h1 img{
   font-weight:400;
   color:var(--stone-300);
   letter-spacing:0.02em;
+  -webkit-text-fill-color:var(--stone-300);
+}
+
+@keyframes price-run{
+  0%{background-position:0% 50%;}
+  100%{background-position:300% 50%;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .plan-view .price{animation:none;background-position:0% 50%;}
 }
 
 .plan-view.more .price{
