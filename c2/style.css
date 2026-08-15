@@ -1344,3 +1344,40 @@ a:focus-visible, button:focus-visible{
 @media (max-width:600px){
   .checkout-page{padding:56px 24px 80px;}
 }
+
+/* ---------------- Scrollbar ---------------- */
+html{
+  scrollbar-width:thin;
+  scrollbar-color:var(--gold-400) var(--stone-900);
+}
+
+::-webkit-scrollbar{
+  width:12px;
+  height:12px;
+}
+
+::-webkit-scrollbar-track{
+  background:var(--stone-900);
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg, var(--gold-400), var(--violet-400));
+  border-radius:6px;
+  border:2px solid var(--stone-900);
+  background-clip:padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(180deg, var(--gold-bright), var(--violet-400));
+  background-clip:padding-box;
+  box-shadow:0 0 10px rgba(0,229,199,0.5);
+}
+
+::-webkit-scrollbar-thumb:active{
+  background:linear-gradient(180deg, var(--violet-400), var(--gold-400));
+  background-clip:padding-box;
+}
+
+::-webkit-scrollbar-corner{
+  background:var(--stone-900);
+}
