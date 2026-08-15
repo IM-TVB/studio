@@ -475,6 +475,8 @@ header h1 img{
 
 .plan-view .buy{
   margin-top:8px;
+  display: flex;
+  justify-content: center;
   border:1px solid var(--stone-500);
   padding:11px;
   border-radius:var(--radius);
