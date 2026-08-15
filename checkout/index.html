@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — Angkor Hosting</title>
+    <link rel="stylesheet" href="/c2/style.css">
+    <link rel="shortcut icon" href="/img/brand.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="/"><h1><img src="/img/brand.png">Angkor Hosting</h1></a>
+        <div class="link-nav display-flex">
+            <a href="/#plan" class="plans nav-link">Plan</a>
+            <a href="/plan/mc/" class="minecraft-server nav-link" style="color:rgb(0, 255, 0);">Minecraft</a>
+            <a href="" class="website nav-link"></a>
+        </div>
+        <div class="auth display-flex">
+            <a href="/" class="login nav-link">Home</a>
+        </div>
+    </header>
+
+    <main class="checkout-page">
+        <p class="legal-label">Order summary</p>
+        <h1>Complete your order</h1>
+        <p class="intro">We don't process payment automatically yet — review your plan below, then send it to us and we'll get your server set up.</p>
+
+        <div class="checkout-layout">
+            <div class="order-card" id="order-card">
+                <div class="order-card-header">
+                    <h2 id="plan-name">—</h2>
+                    <p class="order-price"><span id="plan-price">—</span><span class="unit">/mo</span></p>
+                </div>
+
+                <div class="order-specs">
+                    <div class="ram-plan">
+                        <img src="/svg/ram.svg" width="20px">
+                        <div class="list-size"><p>RAM</p><p class="main-plan-list" id="plan-ram">—</p></div>
+                    </div>
+                    <div class="cpu-plan">
+                        <img src="/svg/cpu.svg" width="20px">
+                        <div class="list-size"><p>CPU</p><p class="main-plan-list" id="plan-cpu">—</p></div>
+                    </div>
+                    <div class="storage-plan">
+                        <img src="/svg/storage.svg" width="20px">
+                        <div class="list-size"><p>DISK</p><p class="main-plan-list" id="plan-disk">—</p></div>
+                    </div>
+                </div>
+
+                <div id="no-plan-notice" class="no-plan-notice" style="display:none;">
+                    <p>No plan selected yet. Head back to the <a href="/plan/mc/">Minecraft plans</a> page and pick one to continue.</p>
+                </div>
+            </div>
+
+            <div class="order-actions">
+                <h3>Next step</h3>
+                <p class="actions-intro">Send us your order and we'll confirm availability, set up billing, and get your server provisioned.</p>
+
+                <a href="#" id="discord-btn" class="checkout-btn discord-btn" target="_blank" rel="noopener">
+                    Order via Discord
+                </a>
+
+                <a href="#" id="telegram-btn" class="checkout-btn telegram-btn" target="_blank" rel="noopener">
+                    Order via Telegram
+                </a>
+
+                <a href="#" id="messenger-btn" class="checkout-btn messenger-btn" target="_blank" rel="noopener">
+                    Order via Messenger
+                </a>
+
+                <a href="#" id="email-btn" class="checkout-btn email-btn">
+                    Order via Email
+                </a>
+
+                <p class="actions-note">Response time is usually within a few hours. For urgent requests, Discord or Telegram is fastest.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="angkor-hosting">
+            <a href="mailto:support@angkorhosting.store" class="footer-email">support@angkorhosting.store</a>
+            <div class="socials">
+                <a href="" class="social-link discord" aria-label="Discord"></a>
+                <a href="" class="social-link twitter" aria-label="Twitter / X"></a>
+                <a href="" class="social-link youtube" aria-label="YouTube"></a>
+                <a href="" class="social-link github" aria-label="GitHub"></a>
+            </div>
+        </div>
+        <div class="product">
+            <h4>Product</h4>
+            <ul>
+                <li><a href="/plan/mc/">Minecraft Hosting</a></li>
+                <li><a href="/#plan">Web Hosting</a></li>
+                <li><a href="/#plan">Pricing</a></li>
+            </ul>
+        </div>
+        <div class="support">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="/tutorial/">Help Center</a></li>
+                <li><a href="#">Status</a></li>
+                <li><a href="mailto:support@angkorhosting.store">Contact</a></li>
+            </ul>
+        </div>
+        <div class="company">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="/terms/">Terms</a></li>
+                <li><a href="/privacy/">Privacy</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        (function(){
+            var params = new URLSearchParams(window.location.search);
+            var plan = params.get('plan');
+            var price = params.get('price');
+            var ram = params.get('ram');
+            var cpu = params.get('cpu');
+            var disk = params.get('disk');
+
+            var DISCORD_INVITE = "https://discord.gg/your-invite-code";
+            var TELEGRAM_USERNAME = "your_telegram_username";
+            var MESSENGER_USERNAME = "your.page.username";
+            var SUPPORT_EMAIL = "support@angkorhosting.store";
+
+            if(!plan){
+                document.getElementById('no-plan-notice').style.display = 'block';
+                document.getElementById('order-card').classList.add('empty');
+                document.getElementById('discord-btn').href = DISCORD_INVITE;
+                document.getElementById('telegram-btn').href = "https://t.me/" + TELEGRAM_USERNAME;
+                document.getElementById('messenger-btn').href = "https://m.me/" + MESSENGER_USERNAME;
+                document.getElementById('email-btn').href = "mailto:" + SUPPORT_EMAIL + "?subject=" + encodeURIComponent("Angkor Hosting — New order");
+                return;
+            }
+
+            document.getElementById('plan-name').textContent = plan;
+            document.getElementById('plan-price').textContent = (price.indexOf('$') === 0 || price.toLowerCase().indexOf('from') === 0) ? price : ('$' + price);
+            document.getElementById('plan-ram').textContent = ram || '—';
+            document.getElementById('plan-cpu').textContent = cpu || '—';
+            document.getElementById('plan-disk').textContent = disk || '—';
+            document.title = plan + " — Checkout — Angkor Hosting";
+
+            var summaryLines = [
+                "New order request",
+                "",
+                "Plan: " + plan,
+                "Price: " + (price.indexOf('$') === 0 ? price : ('$' + price)) + "/mo",
+                "RAM: " + (ram || '—'),
+                "CPU: " + (cpu || '—'),
+                "Disk: " + (disk || '—')
+            ].join("\n");
+
+            var mailSubject = "Angkor Hosting order — " + plan + " plan";
+            var mailBody = summaryLines + "\n\nPlease let me know the next steps to get this set up.";
+
+            document.getElementById('email-btn').href =
+                "mailto:" + SUPPORT_EMAIL +
+                "?subject=" + encodeURIComponent(mailSubject) +
+                "&body=" + encodeURIComponent(mailBody);
+
+            document.getElementById('discord-btn').href = DISCORD_INVITE;
+
+            // Telegram supports pre-filled text via the ?text= param
+            var telegramText = "Hi! I'd like to order the " + plan + " plan (" +
+                (price.indexOf('$') === 0 ? price : ('$' + price)) + "/mo — " +
+                (ram || '—') + " RAM, " + (cpu || '—') + " CPU, " + (disk || '—') + " disk).";
+            document.getElementById('telegram-btn').href =
+                "https://t.me/" + TELEGRAM_USERNAME + "?text=" + encodeURIComponent(telegramText);
+
+            // Messenger (m.me) does not support pre-filled message text — deep link only
+            document.getElementById('messenger-btn').href = "https://m.me/" + MESSENGER_USERNAME;
+        })();
+    </script>
+</body>
+</html>

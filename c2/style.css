@@ -1105,3 +1105,240 @@ a:focus-visible, button:focus-visible{
   .tutorial-steps::before{left:17px;}
   .tutorial-step > div{padding-right:0;}
 }
+
+/* ---------------- Checkout page ---------------- */
+.checkout-page{
+  max-width:920px;
+  margin:0 auto;
+  padding:80px 32px 110px;
+}
+
+.checkout-page .legal-label{
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold-400);
+  margin-bottom:16px;
+}
+
+.checkout-page .legal-label::before{content:"// ";opacity:0.6;}
+
+.checkout-page h1{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(2rem, 4vw, 2.8rem);
+  letter-spacing:-0.01em;
+  color:var(--sand-100);
+  margin-bottom:14px;
+}
+
+.checkout-page .intro{
+  color:var(--stone-300);
+  font-size:1rem;
+  line-height:1.7;
+  max-width:600px;
+  margin-bottom:56px;
+}
+
+.checkout-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  align-items:start;
+}
+
+.order-card{
+  background:rgba(10,15,16,0.6);
+  backdrop-filter:blur(6px);
+  border:1px solid var(--gold-400);
+  border-radius:var(--radius);
+  padding:32px;
+  box-shadow:0 0 30px rgba(0,229,199,0.1);
+}
+
+.order-card.empty{
+  border-color:var(--stone-700);
+  box-shadow:none;
+}
+
+.order-card-header{
+  padding-bottom:20px;
+  margin-bottom:20px;
+  border-bottom:1px solid var(--stone-700);
+}
+
+.order-card-header h2{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.6rem;
+  color:var(--sand-100);
+  margin-bottom:10px;
+}
+
+.order-price{
+  font-family:var(--font-mono);
+  font-size:1.7rem;
+  font-weight:600;
+  color:var(--gold-400);
+}
+
+.order-price .unit{
+  font-size:0.75rem;
+  font-weight:400;
+  color:var(--stone-300);
+  margin-left:2px;
+}
+
+.order-specs{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.order-specs .ram-plan,
+.order-specs .cpu-plan,
+.order-specs .storage-plan{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.order-specs img{width:18px;height:18px;opacity:0.9;}
+
+.no-plan-notice{
+  margin-top:20px;
+  padding:16px;
+  border:1px solid var(--stone-700);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,0.02);
+}
+
+.no-plan-notice p{
+  color:var(--stone-300);
+  font-size:0.9rem;
+  margin:0;
+}
+
+.no-plan-notice a{
+  color:var(--gold-400);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.no-plan-notice a:hover{color:var(--gold-bright);}
+
+.order-actions h3{
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold-400);
+  margin-bottom:16px;
+}
+
+.actions-intro{
+  color:var(--stone-300);
+  font-size:0.92rem;
+  line-height:1.65;
+  margin-bottom:24px;
+}
+
+.checkout-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-align:center;
+  text-decoration:none;
+  font-family:var(--font-mono);
+  font-size:0.88rem;
+  font-weight:600;
+  letter-spacing:0.02em;
+  padding:14px;
+  border-radius:var(--radius);
+  margin-bottom:14px;
+  transition:background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.checkout-btn::before{
+  content:"";
+  width:16px;height:16px;
+  flex-shrink:0;
+  background-color:currentColor;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-size:contain;
+  mask-size:contain;
+  -webkit-mask-position:center;
+  mask-position:center;
+}
+
+.discord-btn{
+  background:var(--gold-400);
+  color:var(--stone-950);
+  border:1px solid var(--gold-400);
+  box-shadow:0 0 22px rgba(0,229,199,0.3);
+}
+
+.discord-btn:hover{
+  background:var(--gold-bright);
+  transform:translateY(-2px);
+  box-shadow:0 0 32px rgba(0,229,199,0.5);
+}
+
+.discord-btn::before{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.01c.12.099.246.197.373.291a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.211 0 2.176 1.096 2.157 2.42 0 1.333-.955 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.01c.12.099.246.197.373.291a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.211 0 2.176 1.096 2.157 2.42 0 1.333-.955 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z'/%3E%3C/svg%3E");
+}
+
+.telegram-btn{
+  background:rgba(56,167,255,0.08);
+  color:#5fc3ff;
+  border:1px solid rgba(56,167,255,0.4);
+}
+
+.telegram-btn:hover{
+  background:rgba(56,167,255,0.16);
+  border-color:#5fc3ff;
+  box-shadow:0 0 22px rgba(56,167,255,0.3);
+  transform:translateY(-2px);
+}
+
+.telegram-btn::before{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.56-1.12.56l.4-5.68 10.34-9.36c.45-.4-.1-.62-.7-.22L7.9 13.27l-5.5-1.72c-1.2-.37-1.22-1.2.25-1.78L22.4 2.05c1-.37 1.87.24 1.5 1.74z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.56-1.12.56l.4-5.68 10.34-9.36c.45-.4-.1-.62-.7-.22L7.9 13.27l-5.5-1.72c-1.2-.37-1.22-1.2.25-1.78L22.4 2.05c1-.37 1.87.24 1.5 1.74z'/%3E%3C/svg%3E");
+}
+
+.messenger-btn{
+  background:rgba(168,85,247,0.08);
+  color:var(--violet-400);
+  border:1px solid rgba(168,85,247,0.4);
+}
+
+.messenger-btn:hover{
+  background:rgba(168,85,247,0.16);
+  border-color:var(--violet-400);
+  box-shadow:0 0 22px rgba(168,85,247,0.3);
+  transform:translateY(-2px);
+}
+
+.messenger-btn::before{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.44 5.49 3.7 7.19V22l3.38-1.86c.9.25 1.87.38 2.92.38 5.52 0 10-4.14 10-9.27S17.52 2 12 2zm1.02 12.48-2.55-2.72-4.98 2.72 5.48-5.82 2.62 2.72 4.9-2.72-5.47 5.82z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.44 5.49 3.7 7.19V22l3.38-1.86c.9.25 1.87.38 2.92.38 5.52 0 10-4.14 10-9.27S17.52 2 12 2zm1.02 12.48-2.55-2.72-4.98 2.72 5.48-5.82 2.62 2.72 4.9-2.72-5.47 5.82z'/%3E%3C/svg%3E");
+}
+
+.actions-note{
+  color:var(--stone-500);
+  font-size:0.82rem;
+  line-height:1.6;
+  margin-top:8px;
+}
+
+@media (max-width:760px){
+  .checkout-layout{grid-template-columns:1fr;}
+}
+
+@media (max-width:600px){
+  .checkout-page{padding:56px 24px 80px;}
+}
