@@ -859,3 +859,249 @@ a:focus-visible, button:focus-visible{
 @media (max-width:600px){
   .legal-page{padding:56px 24px 72px;}
 }
+
+/* ---------------- Tutorial page ---------------- */
+.tutorial-page{
+  max-width:880px;
+  margin:0 auto;
+  padding:80px 32px 110px;
+}
+
+.tutorial-page .legal-label{
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold-400);
+  margin-bottom:16px;
+}
+
+.tutorial-page .legal-label::before{content:"// ";opacity:0.6;}
+
+.tutorial-page h1{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(2.1rem, 4vw, 3rem);
+  letter-spacing:-0.01em;
+  line-height:1.1;
+  color:var(--sand-100);
+  margin-bottom:16px;
+}
+
+.tutorial-page > p.intro{
+  color:var(--stone-300);
+  font-size:1.05rem;
+  line-height:1.7;
+  max-width:600px;
+  margin-bottom:64px;
+}
+
+/* Connected timeline */
+.tutorial-steps{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.tutorial-steps::before{
+  content:"";
+  position:absolute;
+  left:23px;
+  top:12px;
+  bottom:12px;
+  width:1px;
+  background:linear-gradient(to bottom, var(--stone-700), rgba(0,229,199,0.25), var(--stone-700));
+}
+
+.tutorial-step{
+  display:grid;
+  grid-template-columns:48px 1fr;
+  gap:24px;
+  padding:22px 0 22px 0;
+  position:relative;
+}
+
+.tutorial-step .step-num{
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-mono);
+  font-size:0.95rem;
+  font-weight:600;
+  color:var(--gold-400);
+  background:var(--stone-900);
+  border:1px solid var(--stone-700);
+  border-radius:50%;
+  z-index:1;
+  transition:border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.tutorial-step:hover .step-num{
+  border-color:var(--gold-400);
+  color:var(--gold-bright);
+  box-shadow:0 0 16px rgba(0,229,199,0.3);
+}
+
+.tutorial-step > div{
+  padding:2px 24px 8px 4px;
+  border-radius:var(--radius);
+  transition:background 0.25s ease;
+}
+
+.tutorial-step h2{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.2rem;
+  color:var(--sand-100);
+  margin-bottom:10px;
+}
+
+.tutorial-step p{
+  color:var(--stone-300);
+  font-size:0.95rem;
+  line-height:1.75;
+  margin-bottom:10px;
+}
+
+.tutorial-step p:last-child{margin-bottom:0;}
+
+.tutorial-step strong{
+  color:var(--sand-100);
+  font-weight:600;
+}
+
+.tutorial-step code{
+  font-family:var(--font-mono);
+  font-size:0.83rem;
+  color:var(--gold-bright);
+  background:rgba(0,229,199,0.07);
+  border:1px solid rgba(0,229,199,0.18);
+  padding:2px 7px;
+  border-radius:3px;
+}
+
+.tutorial-step ul{
+  list-style:none;
+  margin:12px 0;
+}
+
+.tutorial-step li{
+  color:var(--stone-300);
+  font-size:0.92rem;
+  line-height:1.9;
+  padding-left:20px;
+  position:relative;
+}
+
+.tutorial-step li::before{
+  content:"";
+  position:absolute;
+  left:0;top:11px;
+  width:5px;height:5px;
+  border-radius:50%;
+  background:var(--gold-400);
+  box-shadow:0 0 6px var(--gold-400);
+}
+
+/* FAQ */
+.tutorial-faq{
+  margin-top:80px;
+  padding-top:56px;
+  border-top:1px solid var(--stone-700);
+}
+
+.tutorial-faq h3{
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold-400);
+  margin-bottom:32px;
+}
+
+.tutorial-faq h3::before{content:"// ";opacity:0.6;}
+
+.faq-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.faq-item{
+  padding:24px;
+  background:rgba(10,15,16,0.5);
+  border:1px solid var(--stone-700);
+  border-radius:var(--radius);
+  transition:border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.faq-item:hover{
+  border-color:var(--gold-400);
+  background:rgba(0,229,199,0.03);
+  transform:translateY(-2px);
+}
+
+.faq-item h4{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1rem;
+  color:var(--sand-100);
+  margin-bottom:10px;
+}
+
+.faq-item p{
+  color:var(--stone-300);
+  font-size:0.9rem;
+  line-height:1.7;
+}
+
+.faq-item code{
+  font-family:var(--font-mono);
+  font-size:0.82rem;
+  color:var(--gold-bright);
+  background:rgba(0,229,199,0.07);
+  border:1px solid rgba(0,229,199,0.18);
+  padding:1px 6px;
+  border-radius:3px;
+}
+
+/* Contact card */
+.tutorial-page .legal-contact{
+  margin-top:64px;
+  padding:28px 32px;
+  border:1px solid rgba(0,229,199,0.3);
+  border-radius:var(--radius);
+  background:rgba(0,229,199,0.04);
+  box-shadow:0 0 30px rgba(0,229,199,0.06);
+}
+
+.tutorial-page .legal-contact p{
+  color:var(--stone-300);
+  font-size:0.95rem;
+  margin-bottom:0;
+}
+
+.tutorial-page .legal-contact a{
+  color:var(--gold-400);
+  font-weight:500;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  transition:color 0.2s ease;
+}
+
+.tutorial-page .legal-contact a:hover{color:var(--gold-bright);}
+
+@media (max-width:700px){
+  .faq-grid{grid-template-columns:1fr;}
+}
+
+@media (max-width:600px){
+  .tutorial-page{padding:56px 24px 80px;}
+  .tutorial-step{grid-template-columns:36px 1fr;gap:16px;}
+  .tutorial-step .step-num{width:36px;height:36px;font-size:0.8rem;}
+  .tutorial-steps::before{left:17px;}
+  .tutorial-step > div{padding-right:0;}
+}
