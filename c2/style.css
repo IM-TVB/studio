@@ -371,29 +371,36 @@ header h1 img{
 }
 
 .ram-plan img, .cpu-plan img, .storage-plan img{
-  opacity:0.75;
-  filter:invert(78%) sepia(25%) saturate(700%) hue-rotate(115deg);
+  width:18px;
+  height:18px;
+  flex-shrink:0;
+  opacity:0.9;
 }
 
 .list-size{
   display:flex;
-  align-items:baseline;
+  align-items:center;
   justify-content:space-between;
   flex:1;
   gap:10px;
 }
 
+.list-size p {
+  color: #fff;
+}
+
 .list-size p:first-child{
-  font-size:0.8rem;
+  font-size:0.78rem;
   color: #fff;
   font-family:var(--font-mono);
-  letter-spacing:0.04em;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
 }
 
 .main-plan-list{
   font-family:var(--font-mono);
   font-size:0.95rem;
-  font-weight:500;
+  font-weight:600;
   color:var(--sand-100);
 }
 
