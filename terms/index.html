@@ -4,134 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service — Angkor Hosting</title>
+    <meta name="description" content="Terms of Service and acceptable use policy for Angkor Hosting customers.">
     <link rel="stylesheet" href="/c2/style.css">
     <link rel="shortcut icon" href="/img/brand.png" type="image/x-icon">
 </head>
 <body>
+    <!-- Ambient Background Layers -->
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-ambient-layer"></div>
+
+    <!-- Header Navigation -->
     <header>
-        <a href="/"><h1><img src="/img/brand.png">Angkor Hosting</h1></a>
-        <div class="link-nav display-flex">
-            <a href="/#plan" class="plans nav-link">Plan</a>
-            <a href="/plan/mc/" class="minecraft-server nav-link" style="color:rgb(0, 255, 0);">Minecraft</a>
-            <a href="" class="website nav-link"></a>
+        <a href="/" class="brand-logo">
+            <img src="/img/brand.png" alt="Angkor Hosting Logo">
+            <span>Angkor<span class="brand-accent">Hosting</span></span>
+        </a>
+
+        <nav class="link-nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/plan/mc/" class="nav-link">Minecraft Plans</a>
+            <a href="/tutorial/" class="nav-link">Tutorial</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener" class="btn-client-portal">
+                Discord Support
+            </a>
+            <a href="/plan/mc/" class="btn-primary-nav">Deploy Server</a>
         </div>
-        <div class="auth display-flex">
-            <a href="/" class="login nav-link">Home</a>
-        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
-    <main class="legal-page">
-        <p class="legal-label">Legal</p>
-        <h1 class="legal-title">Terms of Service</h1>
-        <p class="legal-updated">Last updated: August 15, 2026</p>
+    <!-- Mobile Drawer -->
+    <div class="mobile-backdrop"></div>
+    <div class="mobile-nav-drawer">
+        <div class="mobile-drawer-header">
+            <span class="brand-logo">Angkor<span class="brand-accent">Hosting</span></span>
+            <span class="mobile-drawer-close">&times;</span>
+        </div>
+        <div class="mobile-drawer-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/plan/mc/" class="nav-link">Minecraft Plans</a>
+            <a href="/tutorial/" class="nav-link">Tutorial</a>
+        </div>
+    </div>
 
-        <section>
-            <h2>1. Acceptance of Terms</h2>
-            <p>By purchasing, accessing, or using any Angkor Hosting service — including game server hosting, web hosting, and related infrastructure — you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
-        </section>
+    <!-- Terms Main Wrapper -->
+    <main class="legal-page-wrapper">
+        <div style="margin-bottom: 40px;">
+            <p class="section-label">Legal Documentation</p>
+            <h1 class="hero-title" style="font-size: clamp(2.2rem, 4vw, 3rem); margin-bottom: 8px;">
+                Terms of Service
+            </h1>
+            <p style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--stone-400);">
+                Last Updated: August 2026 &bull; Effective Immediately
+            </p>
+        </div>
 
-        <section>
-            <h2>2. Services Provided</h2>
-            <p>Angkor Hosting provides game server hosting (including Minecraft server hosting), web hosting, and associated infrastructure on a subscription basis. Plan specifications (RAM, CPU, storage) are as described on our pricing page at the time of purchase and may be adjusted for future billing cycles with notice.</p>
-        </section>
+        <div class="config-card" style="line-height: 1.8; color: var(--stone-300); font-size: 0.95rem;">
+            <h2 style="font-family: var(--font-display); color: var(--stone-100); font-size: 1.3rem; margin-bottom: 12px;">1. Acceptance of Terms</h2>
+            <p style="margin-bottom: 24px;">
+                By purchasing, accessing, or utilizing any Angkor Hosting services — including game server hosting, voice infrastructure, web hosting, and dedicated nodes — you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+            </p>
 
-        <section>
-            <h2>3. Account Responsibilities</h2>
-            <ul>
-                <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
-                <li>You must provide accurate billing and contact information.</li>
-                <li>You are responsible for all activity that occurs on your server or hosting account.</li>
-                <li>You must be at least 13 years old, or the age of digital consent in your jurisdiction, to create an account.</li>
+            <h2 style="font-family: var(--font-display); color: var(--stone-100); font-size: 1.3rem; margin-bottom: 12px;">2. Services & Server Allocations</h2>
+            <p style="margin-bottom: 24px;">
+                Angkor Hosting provides high-performance game hosting environments with dedicated RAM, vCPU allocations, Gen4 NVMe storage, and DDoS mitigation as outlined on our pricing page at the time of purchase. Service is activated upon payment verification.
+            </p>
+
+            <h2 style="font-family: var(--font-display); color: var(--stone-100); font-size: 1.3rem; margin-bottom: 12px;">3. Acceptable Use Policy</h2>
+            <p style="margin-bottom: 12px;">You agree not to utilize Angkor Hosting servers for any of the following prohibited activities:</p>
+            <ul style="margin-left: 24px; margin-bottom: 24px; color: var(--stone-400);">
+                <li>Launching outward network attacks (DDoS/DoS, port scanning, brute forcing).</li>
+                <li>Cryptocurrency mining or background heavy computational stress scripts outside legitimate game tasks.</li>
+                <li>Hosting illegal content, malware distribution, or pirated software.</li>
+                <li>Attempting to break out of virtualized container environments.</li>
             </ul>
-        </section>
 
-        <section>
-            <h2>4. Acceptable Use</h2>
-            <p>You may not use Angkor Hosting services to:</p>
-            <ul>
-                <li>Host or distribute illegal content, malware, or pirated software.</li>
-                <li>Launch attacks against other networks, including DDoS attacks.</li>
-                <li>Violate the intellectual property rights of others.</li>
-                <li>Engage in cryptocurrency mining without prior authorization.</li>
-                <li>Resell services without an active reseller agreement.</li>
-            </ul>
-            <p>Violations may result in suspension or termination of service without refund.</p>
-        </section>
+            <h2 style="font-family: var(--font-display); color: var(--stone-100); font-size: 1.3rem; margin-bottom: 12px;">4. Uptime & SLA Guarantee</h2>
+            <p style="margin-bottom: 24px;">
+                We target a 99.99% network and power uptime across all primary nodes. In the event of unscheduled hardware downtime exceeding 2 hours, customers are eligible for service credits upon opening a ticket with our support team.
+            </p>
 
-        <section>
-            <h2>5. Billing and Payment</h2>
-            <p>Services are billed in advance on a recurring basis according to your selected plan. Failure to pay by the due date may result in suspension of service. You may cancel at any time; cancellation takes effect at the end of the current billing period.</p>
-        </section>
+            <h2 style="font-family: var(--font-display); color: var(--stone-100); font-size: 1.3rem; margin-bottom: 12px;">5. Cancellations & Refunds</h2>
+            <p style="margin-bottom: 24px;">
+                You may cancel your server subscription at any time via your billing dashboard or Discord ticket. Refund requests submitted within 48 hours of initial order with valid technical justification will be reviewed and processed promptly.
+            </p>
 
-        <section>
-            <h2>6. Refunds</h2>
-            <p>Refund eligibility depends on the plan and circumstances of cancellation. Please refer to our refund policy or contact support for details specific to your purchase.</p>
-        </section>
-
-        <section>
-            <h2>7. Service Availability</h2>
-            <p>We aim to maintain high uptime across our infrastructure but do not guarantee uninterrupted service. Scheduled maintenance will be announced in advance where possible. We are not liable for losses resulting from downtime, data loss, or service interruption.</p>
-        </section>
-
-        <section>
-            <h2>8. Data and Backups</h2>
-            <p>While we may provide backup tools or automated backups depending on your plan, you are ultimately responsible for maintaining your own backups of important data. Angkor Hosting is not liable for data loss.</p>
-        </section>
-
-        <section>
-            <h2>9. Termination</h2>
-            <p>We reserve the right to suspend or terminate accounts that violate these Terms, engage in abusive behavior toward staff, or pose a security risk to our infrastructure or other customers.</p>
-        </section>
-
-        <section>
-            <h2>10. Limitation of Liability</h2>
-            <p>Angkor Hosting services are provided "as is" without warranties of any kind. To the maximum extent permitted by law, we are not liable for indirect, incidental, or consequential damages arising from your use of our services.</p>
-        </section>
-
-        <section>
-            <h2>11. Changes to These Terms</h2>
-            <p>We may update these Terms from time to time. Continued use of our services after changes are posted constitutes acceptance of the revised Terms.</p>
-        </section>
-
-        <div class="legal-contact">
-            <p>Questions about these Terms? Reach out at <a href="mailto:support@angkorhosting.store">support@angkorhosting.store</a>.</p>
+            <div style="padding: 20px; background: rgba(0, 245, 196, 0.05); border: 1px solid rgba(0, 245, 196, 0.3); border-radius: var(--radius-sm); margin-top: 30px;">
+                <p style="color: var(--stone-200); font-size: 0.9rem; margin-bottom: 0;">
+                    Have questions regarding these terms? Reach out to our legal and support team at <a href="mailto:support@angkorhosting.store" style="color: var(--neon-mint); text-decoration: underline;">support@angkorhosting.store</a>.
+                </p>
+            </div>
         </div>
     </main>
 
+    <!-- Global Footer -->
     <footer>
-        <div class="angkor-hosting">
-            <a href="mailto:support@angkorhosting.store" class="footer-email">support@angkorhosting.store</a>
-            <div class="socials">
-                <a href="" class="social-link discord" aria-label="Discord"></a>
-                <a href="" class="social-link twitter" aria-label="Twitter / X"></a>
-                <a href="" class="social-link youtube" aria-label="YouTube"></a>
-                <a href="" class="social-link github" aria-label="GitHub"></a>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h4>Angkor<span class="brand-accent">Hosting</span></h4>
+                <p>Standard & Extreme performance game hosting built for reliability, ultra-low latency, and affordable pricing.</p>
+                <a href="mailto:support@angkorhosting.store" class="footer-email-link">
+                    support@angkorhosting.store
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/plan/mc/">Minecraft Tiers</a></li>
+                    <li><a href="/tutorial/">Setup Guide</a></li>
+                    <li><a href="/terms/">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener">Discord Server</a></li>
+                    <li><a href="https://t.me/angkorhosting" target="_blank" rel="noopener">Telegram Channel</a></li>
+                    <li><a href="/privacy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:support@angkorhosting.store">support@angkorhosting.store</a></li>
+                    <li>Response time: Under 1 hour</li>
+                </ul>
             </div>
         </div>
-        <div class="product">
-            <h4>Product</h4>
-            <ul>
-                <li><a href="/plan/mc/">Minecraft Hosting</a></li>
-                <li><a href="/#plan">Web Hosting</a></li>
-                <li><a href="/#plan">Pricing</a></li>
-            </ul>
-        </div>
-        <div class="support">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Status</a></li>
-                <li><a href="mailto:support@angkorhosting.store">Contact</a></li>
-            </ul>
-        </div>
-        <div class="company">
-            <h4>Company</h4>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="/terms/">Terms</a></li>
-                <li><a href="/privacy/">Privacy</a></li>
-            </ul>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angkor Hosting. All rights reserved.</p>
+            <p>5.7GHz AMD Ryzen 9 7950X3D &bull; Gen4 NVMe &bull; 3.2+ Tbps Protection</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="/c2/main.js"></script>
 </body>
 </html>

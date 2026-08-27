@@ -4,127 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — Angkor Hosting</title>
+    <meta name="description" content="Privacy policy detailing how Angkor Hosting collects, protects, and handles customer data.">
     <link rel="stylesheet" href="/c2/style.css">
     <link rel="shortcut icon" href="/img/brand.png" type="image/x-icon">
 </head>
 <body>
+    <!-- Ambient Background Layers -->
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-ambient-layer"></div>
+
+    <!-- Header Navigation -->
     <header>
-        <a href="/"><h1><img src="/img/brand.png">Angkor Hosting</h1></a>
-        <div class="link-nav display-flex">
-            <a href="/#plan" class="plans nav-link">Plan</a>
-            <a href="/plan/mc/" class="minecraft-server nav-link" style="color:rgb(0, 255, 0);">Minecraft</a>
-            <a href="" class="website nav-link"></a>
+        <a href="/" class="brand-logo">
+            <img src="/img/brand.png" alt="Angkor Hosting Logo">
+            <span>Angkor<span class="brand-accent">Hosting</span></span>
+        </a>
+
+        <nav class="link-nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/plan/mc/" class="nav-link">Minecraft Plans</a>
+            <a href="/tutorial/" class="nav-link">Tutorial</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener" class="btn-client-portal">
+                Discord Support
+            </a>
+            <a href="/plan/mc/" class="btn-primary-nav">Deploy Server</a>
         </div>
-        <div class="auth display-flex">
-            <a href="/" class="login nav-link">Home</a>
-        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
-    <main class="legal-page">
-        <p class="legal-label">Legal</p>
-        <h1 class="legal-title">Privacy Policy</h1>
-        <p class="legal-updated">Last updated: August 15, 2026</p>
+    <!-- Mobile Drawer -->
+    <div class="mobile-backdrop"></div>
+    <div class="mobile-nav-drawer">
+        <div class="mobile-drawer-header">
+            <span class="brand-logo">Angkor<span class="brand-accent">Hosting</span></span>
+            <span class="mobile-drawer-close">&times;</span>
+        </div>
+        <div class="mobile-drawer-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/plan/mc/" class="nav-link">Minecraft Plans</a>
+            <a href="/tutorial/" class="nav-link">Tutorial</a>
+        </div>
+    </div>
 
-        <section>
-            <h2>1. Overview</h2>
-            <p>This Privacy Policy explains how Angkor Hosting collects, uses, and protects your personal information when you use our website and hosting services.</p>
-        </section>
+    <!-- Privacy Main Wrapper -->
+    <main class="legal-page-wrapper">
+        <div style="margin-bottom: 40px;">
+            <p class="section-label">Data Protection</p>
+            <h1 class="hero-title" style="font-size: clamp(2.2rem, 4vw, 3rem); margin-bottom: 8px;">
+                Privacy Policy
+            </h1>
+            <p style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--stone-400);">
+                Last Updated: August 2026 &bull; Compliant with GDPR & Privacy Standards
+            </p>
+        </div>
 
-        <section>
-            <h2>2. Information We Collect</h2>
-            <ul>
-                <li><strong>Account information:</strong> name, email address, and billing details provided when you sign up.</li>
-                <li><strong>Payment information:</strong> processed securely through our payment providers; we do not store full card numbers.</li>
-                <li><strong>Usage data:</strong> server resource usage, login activity, and support ticket history.</li>
-                <li><strong>Technical data:</strong> IP address, browser type, and device information collected automatically for security and analytics purposes.</li>
+        <div class="config-card" style="line-height: 1.8; color: var(--stone-300); font-size: 0.95rem;">
+            <h2 style="font-family: var(--font-display); color: var(--stone-100); font-size: 1.3rem; margin-bottom: 12px;">1. Information We Collect</h2>
+            <p style="margin-bottom: 12px;">We collect only essential information required to deliver and secure your hosting services:</p>
+            <ul style="margin-left: 24px; margin-bottom: 24px; color: var(--stone-400);">
+                <li><strong>Account Credentials:</strong> Email address and username for Pterodactyl panel authentication.</li>
+                <li><strong>Billing Data:</strong> Transaction references and payment status (we do not store full credit card numbers).</li>
+                <li><strong>Server Logs:</strong> Technical connection data and DDoS telemetry for network defense and stability.</li>
             </ul>
-        </section>
 
-        <section>
-            <h2>3. How We Use Your Information</h2>
-            <ul>
-                <li>To provide, maintain, and improve our hosting services.</li>
-                <li>To process payments and manage billing.</li>
-                <li>To respond to support requests and communicate service updates.</li>
-                <li>To detect, prevent, and address fraud, abuse, or security incidents.</li>
-                <li>To comply with legal obligations.</li>
-            </ul>
-        </section>
+            <h2 style="font-family: var(--font-display); color: var(--stone-100); font-size: 1.3rem; margin-bottom: 12px;">2. How Your Data is Protected</h2>
+            <p style="margin-bottom: 24px;">
+                All communication with our website and control panels is encrypted via TLS 1.3 encryption. Passwords and sensitive server keys are hashed using industry-standard cryptography. We do not sell or monetize personal customer data to third-party advertisers.
+            </p>
 
-        <section>
-            <h2>4. Data Sharing</h2>
-            <p>We do not sell your personal information. We may share data with trusted third parties who help us operate our services, such as payment processors, cloud infrastructure providers, and email delivery services — only to the extent necessary for them to perform their function, and under confidentiality obligations.</p>
-        </section>
+            <h2 style="font-family: var(--font-display); color: var(--stone-100); font-size: 1.3rem; margin-bottom: 12px;">3. Data Retention & Deletion</h2>
+            <p style="margin-bottom: 24px;">
+                Server world files and database backups are retained for the duration of your active subscription plus a 7-day grace period following cancellation, after which they are permanently and securely deleted from storage arrays.
+            </p>
 
-        <section>
-            <h2>5. Data Retention</h2>
-            <p>We retain your account and billing information for as long as your account is active, and for a reasonable period afterward to comply with legal, tax, and security obligations. Server content is deleted according to our data deletion schedule after account termination unless otherwise required by law.</p>
-        </section>
+            <h2 style="font-family: var(--font-display); color: var(--stone-100); font-size: 1.3rem; margin-bottom: 12px;">4. Contact & Data Requests</h2>
+            <p style="margin-bottom: 24px;">
+                To request an export or complete removal of your personal information, please contact our data privacy officer at <a href="mailto:support@angkorhosting.store" style="color: var(--neon-mint); text-decoration: underline;">support@angkorhosting.store</a>.
+            </p>
 
-        <section>
-            <h2>6. Cookies</h2>
-            <p>Our website may use cookies and similar technologies to keep you logged in, remember preferences, and understand site usage. You can control cookies through your browser settings, though some features may not function properly if cookies are disabled.</p>
-        </section>
-
-        <section>
-            <h2>7. Data Security</h2>
-            <p>We implement industry-standard security measures — including encryption in transit, access controls, and regular security reviews — to protect your information. However, no method of transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
-        </section>
-
-        <section>
-            <h2>8. Your Rights</h2>
-            <p>Depending on your location, you may have the right to access, correct, export, or delete your personal information. To exercise these rights, contact us using the details below.</p>
-        </section>
-
-        <section>
-            <h2>9. Children's Privacy</h2>
-            <p>Our services are not directed at children under 13. If we learn that we have collected personal information from a child under 13 without parental consent, we will take steps to delete that information.</p>
-        </section>
-
-        <section>
-            <h2>10. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. We will post the updated version on this page with a revised "Last updated" date.</p>
-        </section>
-
-        <div class="legal-contact">
-            <p>Questions about this Privacy Policy? Reach out at <a href="mailto:support@angkorhosting.store">support@angkorhosting.store</a>.</p>
+            <div style="padding: 20px; background: rgba(0, 245, 196, 0.05); border: 1px solid rgba(0, 245, 196, 0.3); border-radius: var(--radius-sm); margin-top: 30px;">
+                <p style="color: var(--stone-200); font-size: 0.9rem; margin-bottom: 0;">
+                    Your privacy and server data security are our top priorities. Questions? Contact us anytime at <a href="mailto:support@angkorhosting.store" style="color: var(--neon-mint); text-decoration: underline;">support@angkorhosting.store</a>.
+                </p>
+            </div>
         </div>
     </main>
 
+    <!-- Global Footer -->
     <footer>
-        <div class="angkor-hosting">
-            <a href="mailto:support@angkorhosting.store" class="footer-email">support@angkorhosting.store</a>
-            <div class="socials">
-                <a href="" class="social-link discord" aria-label="Discord"></a>
-                <a href="" class="social-link twitter" aria-label="Twitter / X"></a>
-                <a href="" class="social-link youtube" aria-label="YouTube"></a>
-                <a href="" class="social-link github" aria-label="GitHub"></a>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h4>Angkor<span class="brand-accent">Hosting</span></h4>
+                <p>Standard & Extreme performance game hosting built for reliability, ultra-low latency, and affordable pricing.</p>
+                <a href="mailto:support@angkorhosting.store" class="footer-email-link">
+                    support@angkorhosting.store
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/plan/mc/">Minecraft Tiers</a></li>
+                    <li><a href="/tutorial/">Setup Guide</a></li>
+                    <li><a href="/terms/">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener">Discord Server</a></li>
+                    <li><a href="https://t.me/angkorhosting" target="_blank" rel="noopener">Telegram Channel</a></li>
+                    <li><a href="/privacy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:support@angkorhosting.store">support@angkorhosting.store</a></li>
+                    <li>Response time: Under 1 hour</li>
+                </ul>
             </div>
         </div>
-        <div class="product">
-            <h4>Product</h4>
-            <ul>
-                <li><a href="/plan/mc/">Minecraft Hosting</a></li>
-                <li><a href="/#plan">Web Hosting</a></li>
-                <li><a href="/#plan">Pricing</a></li>
-            </ul>
-        </div>
-        <div class="support">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Status</a></li>
-                <li><a href="mailto:support@angkorhosting.store">Contact</a></li>
-            </ul>
-        </div>
-        <div class="company">
-            <h4>Company</h4>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="/terms/">Terms</a></li>
-                <li><a href="/privacy/">Privacy</a></li>
-            </ul>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angkor Hosting. All rights reserved.</p>
+            <p>5.7GHz AMD Ryzen 9 7950X3D &bull; Gen4 NVMe &bull; 3.2+ Tbps Protection</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="/c2/main.js"></script>
 </body>
 </html>

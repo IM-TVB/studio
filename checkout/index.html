@@ -3,153 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout — Angkor Hosting</title>
+    <title>Server Configurator & Checkout — Angkor Hosting</title>
+    <meta name="description" content="Configure your game server location, software JAR, custom subdomain, and billing cycle. Instant setup with Angkor Hosting.">
     <link rel="stylesheet" href="/c2/style.css">
     <link rel="shortcut icon" href="/img/brand.png" type="image/x-icon">
 </head>
 <body>
+    <!-- Ambient Background Layers -->
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-ambient-layer"></div>
+
+    <!-- Header Navigation -->
     <header>
-        <a href="/"><h1><img src="/img/brand.png">Angkor Hosting</h1></a>
-        <div class="link-nav display-flex">
-            <a href="/#plan" class="plans nav-link">Plan</a>
-            <a href="/plan/mc/" class="minecraft-server nav-link" style="color:rgb(0, 255, 0);">Minecraft</a>
-            <a href="" class="website nav-link"></a>
+        <a href="/" class="brand-logo">
+            <img src="/img/brand.png" alt="Angkor Hosting Logo">
+            <span>Angkor<span class="brand-accent">Hosting</span></span>
+        </a>
+
+        <nav class="link-nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/plan/mc/" class="nav-link">Minecraft Plans</a>
+            <a href="/tutorial/" class="nav-link">Tutorial</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="/plan/mc/" class="btn-client-portal">Change Plan</a>
+            <a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener" class="btn-primary-nav">Need Help?</a>
         </div>
-        <div class="auth display-flex">
-            <a href="/" class="login nav-link">Home</a>
-        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
-    <main class="checkout-page">
-        <p class="legal-label">Order summary</p>
-        <h1>Complete your order</h1>
-        <p class="intro">We don't process payment automatically yet — review your plan below, then send it to us and we'll get your server set up.</p>
-
-        <div class="checkout-layout">
-            <div class="order-card" id="order-card">
-                <div class="order-card-header">
-                    <h2 id="plan-name">—</h2>
-                    <p class="order-price"><span id="plan-price">—</span><span class="unit">/mo</span></p>
-                </div>
-
-                <div class="order-specs">
-                    <div class="ram-plan">
-                        <img src="/svg/ram.svg" width="20px">
-                        <div class="list-size"><p>RAM</p><p class="main-plan-list" id="plan-ram">—</p></div>
-                    </div>
-                    <div class="cpu-plan">
-                        <img src="/svg/cpu.svg" width="20px">
-                        <div class="list-size"><p>CPU</p><p class="main-plan-list" id="plan-cpu">—</p></div>
-                    </div>
-                    <div class="storage-plan">
-                        <img src="/svg/storage.svg" width="20px">
-                        <div class="list-size"><p>DISK</p><p class="main-plan-list" id="plan-disk">—</p></div>
-                    </div>
-                </div>
-
-                <div id="no-plan-notice" class="no-plan-notice" style="display:none;">
-                    <p>No plan selected yet. Head back to the <a href="/plan/mc/">Minecraft plans</a> page and pick one to continue.</p>
-                </div>
-            </div>
-
-            <div class="order-actions">
-                <h3>Next step</h3>
-                <p class="actions-intro">Send us your order and we'll confirm availability, set up billing, and get your server provisioned.</p>
-
-                <a href="#" id="discord-btn" class="checkout-btn discord-btn" target="_blank" rel="noopener">
-                    Order via Discord
-                </a>
-
-                <a href="#" id="telegram-btn" class="checkout-btn telegram-btn" target="_blank" rel="noopener">
-                    Order via Telegram
-                </a>
-
-                <a href="#" id="messenger-btn" class="checkout-btn messenger-btn" target="_blank" rel="noopener">
-                    Order via Messenger
-                </a>
-
-                <p class="actions-note">Response time is usually within a few hours. For urgent requests, Discord or Telegram is fastest.</p>
-            </div>
+    <!-- Mobile Drawer -->
+    <div class="mobile-backdrop"></div>
+    <div class="mobile-nav-drawer">
+        <div class="mobile-drawer-header">
+            <span class="brand-logo">Angkor<span class="brand-accent">Hosting</span></span>
+            <span class="mobile-drawer-close">&times;</span>
         </div>
+        <div class="mobile-drawer-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/plan/mc/" class="nav-link">Minecraft Plans</a>
+            <a href="/tutorial/" class="nav-link">Tutorial</a>
+        </div>
+    </div>
+
+    <!-- Checkout Main Wrapper -->
+    <main class="checkout-wrapper">
+        <div style="margin-bottom: 36px;">
+            <p class="section-label">Order Configurator</p>
+            <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 10px;">
+                Complete Your <span class="gradient-text">Server Order</span>
+            </h1>
+            <p class="section-desc" style="margin-bottom: 0;">
+                Customize your node location, server software, and optional add-ons. Send your order directly to our dispatch bot or staff team for instant provisioning.
+            </p>
+        </div>
+
+        <form id="checkout-config-form" class="checkout-grid" onsubmit="return false;">
+            <!-- Left Column: Configurator Steps -->
+            <div class="config-steps-col">
+                <!-- Step 1: Billing Cycle -->
+                <div class="config-card">
+                    <h3>
+                        <span class="step-badge">1</span>
+                        <span>Choose Billing Cycle</span>
+                    </h3>
+                    <div class="config-options-grid">
+                        <label class="cycle-radio-card">
+                            <input type="radio" name="billing_cycle" value="monthly" checked>
+                            <span class="cycle-title">1 Month</span>
+                            <span class="cycle-discount">Standard Rate</span>
+                        </label>
+                        <label class="cycle-radio-card">
+                            <input type="radio" name="billing_cycle" value="quarterly">
+                            <span class="cycle-title">3 Months</span>
+                            <span class="cycle-discount">Save 10%</span>
+                        </label>
+                        <label class="cycle-radio-card">
+                            <input type="radio" name="billing_cycle" value="annual">
+                            <span class="cycle-title">12 Months</span>
+                            <span class="cycle-discount">Save 20% 🔥</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 2: Datacenter Location -->
+                <div class="config-card">
+                    <h3>
+                        <span class="step-badge">2</span>
+                        <span>Server Node Location</span>
+                    </h3>
+                    <select id="co-location" class="calc-select-input">
+                        <option value="Singapore (Asia-Pacific)" selected>🇸🇬 Singapore (Equinix SG3 — Lowest latency for SEA)</option>
+                        <option value="Frankfurt (Europe)">🇩🇪 Frankfurt, Germany (Interxion — Central Europe)</option>
+                        <option value="New York (North America)">🇺🇸 New York Metro, USA (East Coast)</option>
+                        <option value="Tokyo (East Asia)">🇯🇵 Tokyo, Japan (TYO Tier-3 Datacenter)</option>
+                    </select>
+                </div>
+
+                <!-- Step 3: Software & Version -->
+                <div class="config-card">
+                    <h3>
+                        <span class="step-badge">3</span>
+                        <span>Minecraft Software & JAR</span>
+                    </h3>
+                    <select id="co-software" class="calc-select-input">
+                        <option value="Paper 1.20.4 (Recommended)" selected>Paper 1.20.4 (Recommended for performance & plugins)</option>
+                        <option value="Purpur 1.20.4">Purpur 1.20.4 (High customization SMP)</option>
+                        <option value="Forge 1.20.1">Forge 1.20.1 (Modpacks & Tech mods)</option>
+                        <option value="Fabric 1.20.4">Fabric 1.20.4 (Lightweight mods & optimization)</option>
+                        <option value="Bedrock / Geyser">Bedrock / Geyser (Cross-play Java + Mobile/Console)</option>
+                        <option value="Vanilla 1.20.4">Vanilla 1.20.4 (Pure original Minecraft)</option>
+                    </select>
+                </div>
+
+                <!-- Step 4: Custom Subdomain -->
+                <div class="config-card">
+                    <h3>
+                        <span class="step-badge">4</span>
+                        <span>Free Subdomain Prefix</span>
+                    </h3>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <input type="text" id="co-subdomain" class="calc-select-input" placeholder="e.g. myserver" style="flex: 1;">
+                        <span style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--stone-400);">.angkor.host</span>
+                    </div>
+                </div>
+
+                <!-- Step 5: Optional Add-ons -->
+                <div class="config-card">
+                    <h3>
+                        <span class="step-badge">5</span>
+                        <span>Power Add-ons (Optional)</span>
+                    </h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label class="addon-toggle-card">
+                            <input type="checkbox" class="addon-checkbox" data-name="Daily Cloud Backups" data-price="0.50">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="cycle-title">🛡️ Automated Daily Cloud Backups</span>
+                                <span style="font-family: var(--font-mono); color: var(--neon-mint); font-size: 0.85rem;">+$0.50/mo</span>
+                            </div>
+                            <span style="font-size: 0.78rem; color: var(--stone-400);">Automated off-site world snapshots with 1-click restore point.</span>
+                        </label>
+
+                        <label class="addon-toggle-card">
+                            <input type="checkbox" class="addon-checkbox" data-name="Dedicated IPv4" data-price="1.50">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="cycle-title">🌐 Dedicated IPv4 (Port 25565)</span>
+                                <span style="font-family: var(--font-mono); color: var(--neon-mint); font-size: 0.85rem;">+$1.50/mo</span>
+                            </div>
+                            <span style="font-size: 0.78rem; color: var(--stone-400);">Connect without typing port numbers; best for custom domain DNS.</span>
+                        </label>
+
+                        <label class="addon-toggle-card">
+                            <input type="checkbox" class="addon-checkbox" data-name="Priority VIP Support" data-price="1.00">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="cycle-title">⚡ Priority VIP Discord SLA</span>
+                                <span style="font-family: var(--font-mono); color: var(--neon-mint); font-size: 0.85rem;">+$1.00/mo</span>
+                            </div>
+                            <span style="font-size: 0.78rem; color: var(--stone-400);">Direct 1-on-1 server technician channel for plugin troubleshooting.</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Live Order Summary & Dispatch Buttons -->
+            <div class="order-summary-box">
+                <div class="summary-header">
+                    <p style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--neon-mint); letter-spacing: 0.1em; margin-bottom: 6px;">
+                        Selected Plan
+                    </p>
+                    <h2 id="co-plan-name" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--stone-100);">
+                        Sapwood
+                    </h2>
+                    <div class="summary-price-total">
+                        <span id="co-total-price">$3.49</span>
+                    </div>
+                    <p id="co-discount-notice" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--stone-400); margin-top: 6px;">
+                        Billed monthly. Cancel anytime.
+                    </p>
+                </div>
+
+                <div class="summary-details-list">
+                    <div class="summary-detail-row">
+                        <span>Base Rate:</span>
+                        <span class="val" id="co-plan-price">$3.49/mo</span>
+                    </div>
+                    <div class="summary-detail-row">
+                        <span>RAM:</span>
+                        <span class="val" id="co-plan-ram">4GB DDR5</span>
+                    </div>
+                    <div class="summary-detail-row">
+                        <span>CPU:</span>
+                        <span class="val" id="co-plan-cpu">2 vCPU Ryzen 9</span>
+                    </div>
+                    <div class="summary-detail-row">
+                        <span>Storage:</span>
+                        <span class="val" id="co-plan-disk">40GB NVMe</span>
+                    </div>
+                    <div class="summary-detail-row">
+                        <span>DDoS Shield:</span>
+                        <span class="val" style="color: var(--neon-mint);">3.2 Tbps Free</span>
+                    </div>
+                    <div class="summary-detail-row">
+                        <span>Setup Time:</span>
+                        <span class="val" style="color: var(--neon-mint);">&lt; 60 Seconds</span>
+                    </div>
+                </div>
+
+                <!-- Instant Dispatch Buttons -->
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="https://discord.gg/9vGv3yqg2k" id="co-discord-btn" target="_blank" rel="noopener" class="checkout-action-btn btn-discord-order">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.01c.12.099.246.197.373.291a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.211 0 2.176 1.096 2.157 2.42 0 1.333-.955 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                        <span>Order via Discord Ticket</span>
+                    </a>
+
+                    <a href="#" id="co-telegram-btn" target="_blank" rel="noopener" class="checkout-action-btn btn-telegram-order">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.56-1.12.56l.4-5.68 10.34-9.36c.45-.4-.1-.62-.7-.22L7.9 13.27l-5.5-1.72c-1.2-.37-1.22-1.2.25-1.78L22.4 2.05c1-.37 1.87.24 1.5 1.74z"/></svg>
+                        <span>Order via Telegram Bot</span>
+                    </a>
+
+                    <button type="button" id="co-copy-invoice-btn" class="checkout-action-btn btn-copy-order">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/></svg>
+                        <span>1-Click Copy Order Text</span>
+                    </button>
+                </div>
+
+                <p style="font-size: 0.75rem; color: var(--stone-500); text-align: center; margin-top: 14px; line-height: 1.5;">
+                    Payment accepted via Card, PayPal, Crypto (USDT), or local KHQR / ABA.
+                </p>
+            </div>
+        </form>
     </main>
 
+    <!-- Global Footer -->
     <footer>
-        <div class="angkor-hosting">
-            <a href="mailto:support@angkorhosting.store" class="footer-email">support@angkorhosting.store</a>
-            <div class="socials">
-                <a href="" class="social-link discord" aria-label="Discord"></a>
-                <a href="" class="social-link twitter" aria-label="Twitter / X"></a>
-                <a href="" class="social-link youtube" aria-label="YouTube"></a>
-                <a href="" class="social-link github" aria-label="GitHub"></a>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h4>Angkor<span class="brand-accent">Hosting</span></h4>
+                <p>Standard & Extreme performance game hosting built for reliability, ultra-low latency, and affordable pricing.</p>
+                <a href="mailto:support@angkorhosting.store" class="footer-email-link">
+                    support@angkorhosting.store
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/plan/mc/">Minecraft Tiers</a></li>
+                    <li><a href="/tutorial/">Setup Guide</a></li>
+                    <li><a href="/terms/">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener">Discord Server</a></li>
+                    <li><a href="https://t.me/angkorhosting" target="_blank" rel="noopener">Telegram Channel</a></li>
+                    <li><a href="/privacy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:support@angkorhosting.store">support@angkorhosting.store</a></li>
+                    <li>Response time: Under 1 hour</li>
+                </ul>
             </div>
         </div>
-        <div class="product">
-            <h4>Product</h4>
-            <ul>
-                <li><a href="/plan/mc/">Minecraft Hosting</a></li>
-                <li><a href="/#plan">Web Hosting</a></li>
-                <li><a href="/#plan">Pricing</a></li>
-            </ul>
-        </div>
-        <div class="support">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="/tutorial/">Help Center</a></li>
-                <li><a href="#">Status</a></li>
-                <li><a href="mailto:support@angkorhosting.store">Contact</a></li>
-            </ul>
-        </div>
-        <div class="company">
-            <h4>Company</h4>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="/terms/">Terms</a></li>
-                <li><a href="/privacy/">Privacy</a></li>
-            </ul>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angkor Hosting. All rights reserved.</p>
+            <p>5.7GHz AMD Ryzen 9 7950X3D &bull; Gen4 NVMe &bull; 3.2+ Tbps Protection</p>
         </div>
     </footer>
 
-    <script>
-        (function(){
-            var params = new URLSearchParams(window.location.search);
-            var plan = params.get('plan');
-            var price = params.get('price');
-            var ram = params.get('ram');
-            var cpu = params.get('cpu');
-            var disk = params.get('disk');
-
-            var DISCORD_INVITE = "https://discord.gg/your-invite-code";
-            var TELEGRAM_USERNAME = "your_telegram_username";
-            var MESSENGER_USERNAME = "your.page.username";
-
-            if(!plan){
-                document.getElementById('no-plan-notice').style.display = 'block';
-                document.getElementById('order-card').classList.add('empty');
-                document.getElementById('discord-btn').href = DISCORD_INVITE;
-                document.getElementById('telegram-btn').href = "https://t.me/" + TELEGRAM_USERNAME;
-                document.getElementById('messenger-btn').href = "https://m.me/" + MESSENGER_USERNAME;
-                return;
-            }
-
-            document.getElementById('plan-name').textContent = plan;
-            document.getElementById('plan-price').textContent = (price.indexOf('$') === 0 || price.toLowerCase().indexOf('from') === 0) ? price : ('$' + price);
-            document.getElementById('plan-ram').textContent = ram || '—';
-            document.getElementById('plan-cpu').textContent = cpu || '—';
-            document.getElementById('plan-disk').textContent = disk || '—';
-            document.title = plan + " — Checkout — Angkor Hosting";
-
-            document.getElementById('discord-btn').href = DISCORD_INVITE;
-
-            // Telegram supports pre-filled text via the ?text= param
-            var telegramText = "Hi! I'd like to order the " + plan + " plan (" +
-                (price.indexOf('$') === 0 ? price : ('$' + price)) + "/mo — " +
-                (ram || '—') + " RAM, " + (cpu || '—') + " CPU, " + (disk || '—') + " disk).";
-            document.getElementById('telegram-btn').href =
-                "https://t.me/" + TELEGRAM_USERNAME + "?text=" + encodeURIComponent(telegramText);
-
-            // Messenger (m.me) does not support pre-filled message text — deep link only
-            document.getElementById('messenger-btn').href = "https://m.me/" + MESSENGER_USERNAME;
-        })();
-    </script>
+    <!-- Scripts -->
+    <script src="/c2/main.js"></script>
 </body>
 </html>

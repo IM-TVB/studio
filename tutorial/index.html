@@ -3,165 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial — Angkor Hosting</title>
+    <title>Server Setup Tutorial & Knowledgebase — Angkor Hosting</title>
+    <meta name="description" content="Step-by-step guide to setting up and managing your Minecraft server on Angkor Hosting. Includes recommended startup flags and performance optimizations.">
     <link rel="stylesheet" href="/c2/style.css">
     <link rel="shortcut icon" href="/img/brand.png" type="image/x-icon">
 </head>
 <body>
+    <!-- Ambient Background Layers -->
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-ambient-layer"></div>
+
+    <!-- Header Navigation -->
     <header>
-        <a href="/"><h1><img src="/img/brand.png">Angkor Hosting</h1></a>
-        <div class="link-nav display-flex">
-            <a href="/#plan" class="plans nav-link">Plan</a>
-            <a href="/plan/mc/" class="minecraft-server nav-link" style="color:rgb(0, 255, 0);">Minecraft</a>
-            <a href="" class="website nav-link"></a>
+        <a href="/" class="brand-logo">
+            <img src="/img/brand.png" alt="Angkor Hosting Logo">
+            <span>Angkor<span class="brand-accent">Hosting</span></span>
+        </a>
+
+        <nav class="link-nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/plan/mc/" class="nav-link">Minecraft Plans</a>
+            <a href="/tutorial/" class="nav-link active">Tutorial</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener" class="btn-client-portal">
+                Discord Support
+            </a>
+            <a href="/plan/mc/" class="btn-primary-nav">Deploy Server</a>
         </div>
-        <div class="auth display-flex">
-            <a href="/" class="login nav-link">Home</a>
-        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
-    <main class="tutorial-page">
-        <p class="legal-label">Guide</p>
-        <h1>Getting started with your server</h1>
-        <p class="intro">From checkout to your first login — here's everything you need to get a Minecraft server running on Angkor Hosting in a few minutes.</p>
+    <!-- Mobile Drawer -->
+    <div class="mobile-backdrop"></div>
+    <div class="mobile-nav-drawer">
+        <div class="mobile-drawer-header">
+            <span class="brand-logo">Angkor<span class="brand-accent">Hosting</span></span>
+            <span class="mobile-drawer-close">&times;</span>
+        </div>
+        <div class="mobile-drawer-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/plan/mc/" class="nav-link">Minecraft Plans</a>
+            <a href="/tutorial/" class="nav-link active">Tutorial</a>
+        </div>
+    </div>
 
-        <div class="tutorial-steps">
-            <div class="tutorial-step">
-                <span class="step-num">01</span>
-                <div>
-                    <h2>Choose a plan</h2>
-                    <p>Head to the <a href="/plan/mc/">Minecraft plans</a> page and pick a tier based on your player count and mod list. As a rough guide:</p>
-                    <ul>
-                        <li>1–4 players, vanilla or light plugins — 1–2GB RAM</li>
-                        <li>5–15 players, plugin survival or SMP — 4–6GB RAM</li>
-                        <li>Modded (Forge/Fabric) or 15+ players — 8GB+ RAM</li>
-                    </ul>
-                    <p>You can always upgrade later without losing your world data.</p>
-                </div>
-            </div>
+    <!-- Tutorial Main Wrapper -->
+    <main class="tutorial-page-wrapper">
+        <div style="margin-bottom: 40px; text-align: center;">
+            <p class="section-label" style="justify-content: center;">Knowledgebase & Guide</p>
+            <h1 class="hero-title" style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 12px;">
+                Getting Started with <br>
+                <span class="gradient-text">Your Angkor Server</span>
+            </h1>
+            <p class="section-desc" style="margin: 0 auto; max-width: 650px;">
+                From order confirmation to your first multiplayer login — follow this quick guide to configure your Minecraft server in less than 5 minutes.
+            </p>
+        </div>
 
-            <div class="tutorial-step">
-                <span class="step-num">02</span>
-                <div>
-                    <h2>Complete checkout</h2>
-                    <p>Select your billing cycle and complete payment. Your server is provisioned automatically — you'll receive a confirmation email with a link to your control panel within a couple of minutes.</p>
-                </div>
-            </div>
+        <!-- Step 1 -->
+        <div class="tutorial-step-card">
+            <span class="step-badge">STEP 01</span>
+            <h2 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--stone-100); margin-bottom: 10px;">
+                Select Your Plan & Region
+            </h2>
+            <p style="color: var(--stone-300); font-size: 0.95rem; line-height: 1.7; margin-bottom: 12px;">
+                Visit the <a href="/plan/mc/" style="color: var(--neon-mint); text-decoration: underline;">Minecraft Plans</a> catalog and pick a tier based on your player size:
+            </p>
+            <ul style="margin-left: 20px; color: var(--stone-400); font-size: 0.9rem; line-height: 1.8; margin-bottom: 12px;">
+                <li><strong>1–4 Players (Vanilla / Bedrock):</strong> Sapling (1GB) or Sprout (2GB)</li>
+                <li><strong>10–30 Players (Survival SMP + 20+ Plugins):</strong> Sapwood (4GB) or Grove (6GB)</li>
+                <li><strong>30+ Players or Heavy Modpacks (ATM9, Cobblemon):</strong> Canopy (8GB) to Ancient (16GB)</li>
+            </ul>
+        </div>
 
-            <div class="tutorial-step">
-                <span class="step-num">03</span>
-                <div>
-                    <h2>Log in to the control panel</h2>
-                    <p>Use the credentials from your confirmation email to log in. From the dashboard, click your server to open its management page — you'll see console output, resource usage, and file access.</p>
-                </div>
-            </div>
+        <!-- Step 2 -->
+        <div class="tutorial-step-card">
+            <span class="step-badge">STEP 02</span>
+            <h2 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--stone-100); margin-bottom: 10px;">
+                Access the Game Control Panel
+            </h2>
+            <p style="color: var(--stone-300); font-size: 0.95rem; line-height: 1.7;">
+                Within 60 seconds of checkout, you will receive your Pterodactyl Game Panel credentials. Log into your control panel dashboard, click on your server instance, and you will see your live CPU/RAM stats, server terminal, and file manager.
+            </p>
+        </div>
 
-            <div class="tutorial-step">
-                <span class="step-num">04</span>
-                <div>
-                    <h2>Pick your version and server type</h2>
-                    <p>Open the <strong>Startup</strong> tab and choose your Minecraft version and server jar — <code>Vanilla</code>, <code>Paper</code>, <code>Spigot</code>, <code>Forge</code>, or <code>Fabric</code>. Paper is recommended for most survival and plugin servers since it's optimized for performance.</p>
-                </div>
-            </div>
+        <!-- Step 3 -->
+        <div class="tutorial-step-card">
+            <span class="step-badge">STEP 03</span>
+            <h2 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--stone-100); margin-bottom: 10px;">
+                Choose Server Type (Paper, Forge, Fabric, Bedrock)
+            </h2>
+            <p style="color: var(--stone-300); font-size: 0.95rem; line-height: 1.7; margin-bottom: 12px;">
+                Navigate to the <strong>Startup</strong> tab in your panel. Under <strong>Server Version</strong>, select your preferred engine:
+            </p>
+            <ul style="margin-left: 20px; color: var(--stone-400); font-size: 0.9rem; line-height: 1.8;">
+                <li><code>Paper / Purpur</code> — Highly recommended for regular survival and plugin servers.</li>
+                <li><code>Fabric</code> — Best lightweight performance engine for modded gameplay.</li>
+                <li><code>Forge / NeoForge</code> — Best for large industrial, magical, and adventure modpacks.</li>
+                <li><code>Geyser / Bedrock</code> — Allows mobile (iOS/Android), Windows 10, and console players to join.</li>
+            </ul>
+        </div>
 
-            <div class="tutorial-step">
-                <span class="step-num">05</span>
-                <div>
-                    <h2>Start the server</h2>
-                    <p>Hit <strong>Start</strong> from the console tab. The first boot downloads the server jar and generates your world, so it may take a minute or two longer than future restarts. Watch the console for <code>Done!</code> to know it's ready.</p>
-                </div>
-            </div>
+        <!-- Step 4 -->
+        <div class="tutorial-step-card">
+            <span class="step-badge">STEP 04</span>
+            <h2 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--stone-100); margin-bottom: 10px;">
+                Recommended Java Garbage Collection (Aikar's Flags)
+            </h2>
+            <p style="color: var(--stone-300); font-size: 0.95rem; line-height: 1.7;">
+                All Angkor Hosting instances come pre-configured with Aikar's optimized G1GC flags to eliminate server garbage collection lag spikes:
+            </p>
 
-            <div class="tutorial-step">
-                <span class="step-num">06</span>
-                <div>
-                    <h2>Connect and invite players</h2>
-                    <p>Copy your server's IP address from the panel overview and share it with your friends. In Minecraft, go to <strong>Multiplayer → Add Server</strong> and paste the address to connect.</p>
-                </div>
-            </div>
-
-            <div class="tutorial-step">
-                <span class="step-num">07</span>
-                <div>
-                    <h2>Install plugins or mods (optional)</h2>
-                    <p>Use the <strong>File Manager</strong> to upload <code>.jar</code> plugin files into the <code>plugins</code> folder (Paper/Spigot) or <code>mods</code> folder (Forge/Fabric), then restart the server for them to load.</p>
-                </div>
-            </div>
-
-            <div class="tutorial-step">
-                <span class="step-num">08</span>
-                <div>
-                    <h2>Set up backups</h2>
-                    <p>Open the <strong>Backups</strong> tab and create a manual backup, or schedule automatic ones. We recommend backing up before any major plugin or version change.</p>
-                </div>
+            <div class="code-block-wrapper">
+                <button class="copy-snippet-btn" data-copy-target="aikar-flags">Copy Flags</button>
+                <code id="aikar-flags">-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1</code>
             </div>
         </div>
 
-        <div class="tutorial-faq">
-            <h3>Common questions</h3>
-
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h4>Can I switch plans later?</h4>
-                    <p>Yes — you can upgrade or downgrade your plan at any time from your account dashboard. Your world files and configuration carry over automatically.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>How do I change my server's difficulty or game mode?</h4>
-                    <p>Open the <strong>File Manager</strong>, edit <code>server.properties</code>, and update the <code>difficulty</code> or <code>gamemode</code> values, then restart the server for changes to take effect.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>My server won't start — what should I check first?</h4>
-                    <p>Check the console for the error message, confirm your selected Minecraft version matches your server jar, and make sure any recently added plugins or mods are compatible with your server version.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>Can I run a custom modpack?</h4>
-                    <p>Yes — select Forge or Fabric as your server type, then upload your modpack's server files through the File Manager, or use the panel's modpack installer if your plan supports it.</p>
-                </div>
-            </div>
+        <!-- Step 5 -->
+        <div class="tutorial-step-card">
+            <span class="step-badge">STEP 05</span>
+            <h2 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--stone-100); margin-bottom: 10px;">
+                Start Server & Connect Your Players
+            </h2>
+            <p style="color: var(--stone-300); font-size: 0.95rem; line-height: 1.7; margin-bottom: 12px;">
+                Hit the green <strong>Start</strong> button on the console tab. Once the console outputs <code>Done!</code>, copy your server IP address (e.g. <code>play.angkor.host:25565</code>).
+            </p>
+            <p style="color: var(--stone-300); font-size: 0.95rem; line-height: 1.7;">
+                In your Minecraft game client, go to <strong>Multiplayer &rarr; Add Server</strong>, paste your server IP, and press <strong>Done</strong> to connect!
+            </p>
         </div>
 
-        <div class="legal-contact">
-            <p>Still stuck? Reach out at <a href="mailto:support@angkorhosting.store">support@angkorhosting.store</a> and we'll help you get sorted.</p>
+        <!-- Step 6 -->
+        <div class="tutorial-step-card">
+            <span class="step-badge">STEP 06</span>
+            <h2 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--stone-100); margin-bottom: 10px;">
+                Installing Plugins & Scheduling Cloud Backups
+            </h2>
+            <p style="color: var(--stone-300); font-size: 0.95rem; line-height: 1.7; margin-bottom: 12px;">
+                To add plugins like <code>EssentialsX</code>, <code>Vault</code>, or <code>LuckPerms</code>, open the <strong>File Manager</strong>, open the <code>plugins/</code> folder, upload the <code>.jar</code> files, and restart your server.
+            </p>
+            <p style="color: var(--stone-300); font-size: 0.95rem; line-height: 1.7;">
+                To safeguard your world against griefing or corruption, open the <strong>Backups</strong> tab and hit <strong>Create Backup</strong>.
+            </p>
+        </div>
+
+        <!-- Need Help Callout -->
+        <div class="ready-cta-card" style="padding: 40px; margin-top: 40px;">
+            <h3>Need Live Help Setting Up Your Server?</h3>
+            <p style="margin-bottom: 20px;">Our server technicians are available 24/7 on Discord to help you configure plugins or install custom modpacks.</p>
+            <a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener" class="btn-hero-primary" style="display: inline-flex;">
+                Join Discord Support Server &rarr;
+            </a>
         </div>
     </main>
 
+    <!-- Global Footer -->
     <footer>
-        <div class="angkor-hosting">
-            <a href="mailto:support@angkorhosting.store" class="footer-email">support@angkorhosting.store</a>
-            <div class="socials">
-                <a href="" class="social-link discord" aria-label="Discord"></a>
-                <a href="" class="social-link twitter" aria-label="Twitter / X"></a>
-                <a href="" class="social-link youtube" aria-label="YouTube"></a>
-                <a href="" class="social-link github" aria-label="GitHub"></a>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h4>Angkor<span class="brand-accent">Hosting</span></h4>
+                <p>Standard & Extreme performance game hosting built for reliability, ultra-low latency, and affordable pricing.</p>
+                <a href="mailto:support@angkorhosting.store" class="footer-email-link">
+                    support@angkorhosting.store
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/plan/mc/">Minecraft Tiers</a></li>
+                    <li><a href="/tutorial/">Setup Guide</a></li>
+                    <li><a href="/terms/">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener">Discord Server</a></li>
+                    <li><a href="https://t.me/angkorhosting" target="_blank" rel="noopener">Telegram Channel</a></li>
+                    <li><a href="/privacy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:support@angkorhosting.store">support@angkorhosting.store</a></li>
+                    <li>Response time: Under 1 hour</li>
+                </ul>
             </div>
         </div>
-        <div class="product">
-            <h4>Product</h4>
-            <ul>
-                <li><a href="/plan/mc/">Minecraft Hosting</a></li>
-                <li><a href="/#plan">Web Hosting</a></li>
-                <li><a href="/#plan">Pricing</a></li>
-            </ul>
-        </div>
-        <div class="support">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="/tutorial/">Help Center</a></li>
-                <li><a href="#">Status</a></li>
-                <li><a href="mailto:support@angkorhosting.store">Contact</a></li>
-            </ul>
-        </div>
-        <div class="company">
-            <h4>Company</h4>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="/terms/">Terms</a></li>
-                <li><a href="/privacy/">Privacy</a></li>
-            </ul>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angkor Hosting. All rights reserved.</p>
+            <p>5.7GHz AMD Ryzen 9 7950X3D &bull; Gen4 NVMe &bull; 3.2+ Tbps Protection</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="/c2/main.js"></script>
 </body>
 </html>

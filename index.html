@@ -3,173 +3,824 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angkor Hosting</title>
+    <title>Angkor Hosting — High Performance Minecraft & Game Server Hosting</title>
+    <meta name="description" content="Ultra-reliable game server hosting powered by AMD Ryzen 9 7950X3D processors, NVMe Gen4 SSDs, and 3.2+ Tbps Corero DDoS protection. Starting at $0.89/mo.">
     <link rel="stylesheet" href="/c2/style.css">
     <link rel="shortcut icon" href="/img/brand.png" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <a href="/"><h1><img src="/img/brand.png">Angkor Hosting</h1></a>
-        <div class="link-nav display-flex">
-            <a href="#plan" class="plans nav-link">Plan</a>
-            <a href="/plan/mc/" class="minecraft-server nav-link" style="color:rgb(0, 255, 0);">Minecraft</a>
-            <a href="" class="website nav-link"></a>
-        </div>
-        <div class="auth display-flex">
-            <a href="" class="login nav-link">Login</a>
-        </div>
-    </header>
-    <main>
-        <div class="get-starter">
-            <div class="get-text">
-                <div class="support-24"></div>
-                <h2>Standard Game Hosting</h2>
-                <p>
-                    Experience standard game hosting that delivers exceptional uptime without breaking your budget. Our reliable hosting infrastructure ensures your game server stays online 24/7 while offering affordable pricing plans for every budget. Build vanilla, plugin full control.
-                </p>
-                <div class="get-btn">
-                    <a href="/plan/mc/" class="get-start">Get Start</a>
-                    <a href="/tutorial/" class="tutorial">Tutorial</a>
-                </div>
-            </div>
-        </div>
-        <div class="our-services" id="plan">
-            <h3>Our Services</h3>
-            <h2>Cheap price server hosting with simple control panel.</h2>
-            <p>Choose plan hosting - then follow follwo the guided to setup server.</p>
-            <div class="plan">
-                <div class="plan-view 1gb">
-                    <h2>1GB Plan</h2>
-                    <p class="price">$0.89<span>/mo</span></p>
-                    <div class="ram-plan">
-                        <img src="/svg/ram.svg" width="20px">
-                        <div class="list-size">
-                            <p>RAM</p>
-                            <p class="main-plan-list">1GB</p>
-                        </div>
-                    </div>
-                    <div class="cpu-plan">
-                        <img src="/svg/cpu.svg" width="20px">
-                        <div class="list-size">
-                            <p>CPU</p>
-                            <p class="main-plan-list">1vCPU</p>
-                        </div>
-                    </div>
-                    <div class="storage-plan">
-                        <img src="/svg/storage.svg" width="20px">
-                        <div class="list-size">
-                            <p>DISK</p>
-                            <p class="main-plan-list">10GB</p>
-                        </div>
-                    </div>
-                    <a style="justify-content: center;display: flex;" href="/checkout/?plan=Sapling&price=0.89&ram=1GB&cpu=1vCPU&disk=10GB" class="buy"></a>
-                </div>
-                <div class="plan-view sec">
-                    <h2>4GB Plan</h2>
-                    <p class="price">$3.49<span>/mo</span></p>
-                    <div class="ram-plan">
-                        <img src="/svg/ram.svg" width="20px">
-                        <div class="list-size">
-                            <p>RAM</p>
-                            <p class="main-plan-list">4GB</p>
-                        </div>
-                    </div>
-                    <div class="cpu-plan">
-                        <img src="/svg/cpu.svg" width="20px">
-                        <div class="list-size">
-                            <p>CPU</p>
-                            <p class="main-plan-list">2vCPU</p>
-                        </div>
-                    </div>
-                    <div class="storage-plan">
-                        <img src="/svg/storage.svg" width="20px">
-                        <div class="list-size">
-                            <p>DISK</p>
-                            <p class="main-plan-list">50GB</p>
-                        </div>
-                    </div>
-                    <a style="justify-content: center;display: flex;" href="/checkout/?plan=Sapwood&price=3.49&ram=4GB&cpu=2vCPU&disk=40GB" class="buy"></a>
-                </div>
-                <div class="plan-view more">
-                    <h2>More Plan</h2>
-                    <p class="price">From $1<span>/mo</span></p>
-                    <div class="ram-plan">
-                        <img src="/svg/ram.svg" width="20px">
-                        <div class="list-size">
-                            <p>RAM</p>
-                            <p class="main-plan-list">1-16GB</p>
-                        </div>
-                    </div>
-                    <div class="cpu-plan">
-                        <img src="/svg/cpu.svg" width="20px">
-                        <div class="list-size">
-                            <p>CPU</p>
-                            <p class="main-plan-list">1-8vCPU</p>
-                        </div>
-                    </div>
-                    <div class="storage-plan">
-                        <img src="/svg/storage.svg" width="20px">
-                        <div class="list-size">
-                            <p>DISK</p>
-                            <p class="main-plan-list">10-200GB</p>
-                        </div>
-                    </div>
-                    <a style="display: flex;justify-content: center;" href="plan/mc/" class="buy"></a>
-                </div>
-            </div>
-        </div>
-        <div class="choose-us">
-            <h3>Why Choose Us</h3>
-            <h2>Built for cheap and reliability</h2>
-            <p>our server hosting is standard for maximum cheap prices. We use standard hardware and network with staff support everytime.</p>
-            <div class="card-choose-us">
-                <div class="card">Supporter Eperince in Server</div>
-                <div class="card">Cheap Price for Everyone</div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </div>
-    </main>
-    <div class="ready">
-        <h2>Ready to launch your server?</h2>
-        <p>Let's Get Start now with angkor hosting.</p>
+    <!-- Ambient Background Layers -->
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-ambient-layer"></div>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-announcement">
+        <span>⚡ <strong>SPECIAL LAUNCH:</strong> Get 20% OFF on all annual hosting plans with instant auto-provisioning! <a href="/plan/mc/">View Plans &rarr;</a></span>
     </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="/" class="brand-logo">
+            <img src="/img/brand.png" alt="Angkor Hosting Logo">
+            <span>Angkor<span class="brand-accent">Hosting</span></span>
+        </a>
+
+        <nav class="link-nav">
+            <a href="#plans" class="nav-link">Plans</a>
+            <a href="/plan/mc/" class="nav-link nav-featured">
+                Minecraft <span class="nav-badge">HOT</span>
+            </a>
+            <a href="#calculator" class="nav-link">RAM Calculator</a>
+            <a href="#console-demo" class="nav-link">Live Demo</a>
+            <a href="/tutorial/" class="nav-link">Tutorial</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener" class="btn-client-portal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.01c.12.099.246.197.373.291a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.211 0 2.176 1.096 2.157 2.42 0 1.333-.955 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                Discord Support
+            </a>
+            <a href="/plan/mc/" class="btn-primary-nav">Deploy Server</a>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-backdrop"></div>
+    <div class="mobile-nav-drawer">
+        <div class="mobile-drawer-header">
+            <span class="brand-logo">Angkor<span class="brand-accent">Hosting</span></span>
+            <span class="mobile-drawer-close">&times;</span>
+        </div>
+        <div class="mobile-drawer-links">
+            <a href="#plans" class="nav-link">Plans</a>
+            <a href="/plan/mc/" class="nav-link">Minecraft Plans</a>
+            <a href="#calculator" class="nav-link">RAM Calculator</a>
+            <a href="#console-demo" class="nav-link">Live Console Demo</a>
+            <a href="/tutorial/" class="nav-link">Setup Tutorial</a>
+            <a href="#faq" class="nav-link">FAQ & Help</a>
+            <a href="/checkout/?plan=Sapwood&price=3.49&ram=4GB&cpu=2vCPU&disk=40GB" class="btn-primary-nav" style="text-align: center; margin-top: 10px;">Order Server</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge-group">
+                    <span class="pulse-dot"></span>
+                    <span>⚡ 5.7GHz AMD Ryzen 9 7950X3D • 99.99% Uptime SLA</span>
+                </div>
+
+                <h1 class="hero-title">
+                    High Performance <br>
+                    <span class="gradient-text">Minecraft & Game</span> <br>
+                    Server Hosting.
+                </h1>
+
+                <p class="hero-desc">
+                    Experience butter-smooth 20 TPS gameplay with ultra-low latency hardware, automated NVMe backups, unmetered DDoS protection, and an intuitive control panel built for server owners.
+                </p>
+
+                <div class="hero-cta-group">
+                    <a href="/plan/mc/" class="btn-hero-primary">
+                        <span>Deploy Now from $0.89/mo</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#calculator" class="btn-hero-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+                        <span>Calculate RAM</span>
+                    </a>
+                </div>
+
+                <div class="hero-stats-bar">
+                    <div class="hero-stat-item">
+                        <h4>&lt; 15 ms</h4>
+                        <p>Global Average Latency</p>
+                    </div>
+                    <div class="hero-stat-item">
+                        <h4>60 Sec</h4>
+                        <p>Instant Auto-Setup</p>
+                    </div>
+                    <div class="hero-stat-item">
+                        <h4>3.2+ Tbps</h4>
+                        <p>Corero DDoS Shield</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Interactive Visual Card -->
+            <div class="hero-visual-card">
+                <div class="hero-server-status">
+                    <div class="status-info">
+                        <span class="server-dot-live"></span>
+                        <div>
+                            <p style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: var(--stone-100);">play.angkor.host</p>
+                            <p style="font-size: 0.72rem; color: var(--stone-400);">Singapore Node #01 • Paper 1.20.4</p>
+                        </div>
+                    </div>
+                    <span class="sim-status-badge status-online">20.00 TPS</span>
+                </div>
+
+                <div class="hero-server-specs">
+                    <div class="spec-meter-row">
+                        <div class="spec-meter-label">
+                            <span>CPU (Ryzen 9 7950X3D)</span>
+                            <span>4.2% / 5.7GHz</span>
+                        </div>
+                        <div class="spec-meter-bar">
+                            <div class="spec-meter-fill fill-mint" style="width: 18%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="spec-meter-row">
+                        <div class="spec-meter-label">
+                            <span>RAM Allocated (DDR5 5600MHz)</span>
+                            <span>1.42 GB / 8.00 GB</span>
+                        </div>
+                        <div class="spec-meter-bar">
+                            <div class="spec-meter-fill fill-purple" style="width: 28%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="spec-meter-row">
+                        <div class="spec-meter-label">
+                            <span>NVMe Gen4 SSD Disk IO</span>
+                            <span>7,000 MB/s Read Speed</span>
+                        </div>
+                        <div class="spec-meter-bar">
+                            <div class="spec-meter-fill fill-blue" style="width: 12%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--stone-700); display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--stone-400);">DDoS Mitigation: <strong style="color: var(--neon-mint);">Active</strong></span>
+                    <a href="/plan/mc/" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--neon-mint); text-decoration: underline;">Configure Similar &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Low-Latency Node Ping Tester -->
+        <section class="ping-tester-section">
+            <p class="section-label">Global Low Latency Infrastructure</p>
+            <h2 class="section-heading">Test Your Connection to Our Nodes</h2>
+            <p class="section-desc">We host our servers on Tier-3 enterprise datacenters connected to premium Tier-1 transit providers for ultra-low jitter and seamless multiplayer.</p>
+
+            <div class="ping-grid">
+                <div class="ping-card">
+                    <div class="location-info">
+                        <span class="location-flag">🇸🇬</span>
+                        <div>
+                            <p class="location-name">Singapore</p>
+                            <p class="location-region">Asia-Pacific (Equinix SG3)</p>
+                        </div>
+                    </div>
+                    <div class="ping-val-wrapper">
+                        <span class="ping-val ping-fast" id="ping-val-sg">14 ms</span>
+                        <button class="test-ping-btn" data-node="sg">Re-test</button>
+                    </div>
+                </div>
+
+                <div class="ping-card">
+                    <div class="location-info">
+                        <span class="location-flag">🇩🇪</span>
+                        <div>
+                            <p class="location-name">Frankfurt</p>
+                            <p class="location-region">Europe (Interxion FRA)</p>
+                        </div>
+                    </div>
+                    <div class="ping-val-wrapper">
+                        <span class="ping-val ping-fast" id="ping-val-de">28 ms</span>
+                        <button class="test-ping-btn" data-node="de">Re-test</button>
+                    </div>
+                </div>
+
+                <div class="ping-card">
+                    <div class="location-info">
+                        <span class="location-flag">🇺🇸</span>
+                        <div>
+                            <p class="location-name">New York</p>
+                            <p class="location-region">North America (NY Metro)</p>
+                        </div>
+                    </div>
+                    <div class="ping-val-wrapper">
+                        <span class="ping-val ping-good" id="ping-val-us">38 ms</span>
+                        <button class="test-ping-btn" data-node="us">Re-test</button>
+                    </div>
+                </div>
+
+                <div class="ping-card">
+                    <div class="location-info">
+                        <span class="location-flag">🇯🇵</span>
+                        <div>
+                            <p class="location-name">Tokyo</p>
+                            <p class="location-region">East Asia (TYO Datacenter)</p>
+                        </div>
+                    </div>
+                    <div class="ping-val-wrapper">
+                        <span class="ping-val ping-fast" id="ping-val-jp">22 ms</span>
+                        <button class="test-ping-btn" data-node="jp">Re-test</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive RAM & Plan Calculator -->
+        <section class="calculator-section" id="calculator">
+            <p class="section-label">Server Sizing Wizard</p>
+            <h2 class="section-heading">Interactive RAM & Plan Calculator</h2>
+            <p class="section-desc">Not sure how much RAM you need? Move the player slider and pick your server software to instantly find the recommended tier.</p>
+
+            <div class="calculator-card">
+                <div class="calc-control-group">
+                    <div>
+                        <div class="calc-slider-header">
+                            <label for="calc-players">Estimated Concurrent Players</label>
+                            <span class="calc-slider-val" id="calc-player-val">15 Players</span>
+                        </div>
+                        <input type="range" id="calc-players" class="calc-range-slider" min="1" max="100" value="15">
+                    </div>
+
+                    <div>
+                        <div class="calc-slider-header">
+                            <label for="calc-server-type">Server Type / Modding</label>
+                        </div>
+                        <select id="calc-server-type" class="calc-select-input">
+                            <option value="0.8">Vanilla / Bedrock (Lightweight)</option>
+                            <option value="1.0" selected>Paper / Purpur / Spigot (10-30 Plugins)</option>
+                            <option value="1.6">Heavy Plugins / SMP Network (50+ Plugins)</option>
+                            <option value="2.2">Modded Forge / Fabric (RLCraft, ATM9, Cobblemon)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <div class="calc-slider-header">
+                            <label>Recommended Memory Usage</label>
+                        </div>
+                        <div class="spec-meter-bar" style="height: 10px;">
+                            <div id="calc-ram-meter-fill" class="spec-meter-fill fill-mint" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calc-result-box">
+                    <div class="calc-res-header">
+                        <h4>Recommended Plan</h4>
+                        <div class="calc-res-plan-title">
+                            <span id="calc-res-plan">Sapwood</span>
+                            <span class="calc-res-price" id="calc-res-price">$3.49<span>/mo</span></span>
+                        </div>
+                    </div>
+
+                    <div class="calc-specs-list">
+                        <div class="calc-spec-item">
+                            <span>Dedicated Memory:</span>
+                            <span class="spec-val" id="calc-res-ram">4GB RAM</span>
+                        </div>
+                        <div class="calc-spec-item">
+                            <span>CPU Allocation:</span>
+                            <span class="spec-val" id="calc-res-cpu">2 vCPU (Ryzen 9)</span>
+                        </div>
+                        <div class="calc-spec-item">
+                            <span>Ultra NVMe Storage:</span>
+                            <span class="spec-val" id="calc-res-disk">40GB NVMe</span>
+                        </div>
+                        <div class="calc-spec-item">
+                            <span>DDoS Protection:</span>
+                            <span class="spec-val">Included (3.2 Tbps)</span>
+                        </div>
+                    </div>
+
+                    <a href="/checkout/?plan=Sapwood&price=3.49&ram=4GB&cpu=2vCPU&disk=40GB" id="calc-res-btn" class="btn-hero-primary" style="justify-content: center; width: 100%;">
+                        Order Recommended Plan &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Game Console Simulator (Pterodactyl UI) -->
+        <section class="console-simulator-section" id="console-demo">
+            <p class="section-label">Intuitive Control Panel</p>
+            <h2 class="section-heading">Interactive Live Web Console Simulator</h2>
+            <p class="section-desc">Experience our high-speed Pterodactyl-based game control panel. Type live Minecraft commands like <code>/tps</code>, <code>/list</code>, <code>/op</code>, or <code>/say hello</code> in the interactive terminal below!</p>
+
+            <div class="console-mockup-window">
+                <div class="console-window-header">
+                    <div class="console-traffic-lights">
+                        <span class="traffic-dot dot-red"></span>
+                        <span class="traffic-dot dot-yellow"></span>
+                        <span class="traffic-dot dot-green"></span>
+                    </div>
+
+                    <div class="console-window-title">
+                        Angkor Panel — <strong>play.angkor.host:25565</strong> (Paper 1.20.4)
+                    </div>
+
+                    <div class="console-controls-bar">
+                        <span class="sim-status-badge status-online" id="sim-server-status">ONLINE</span>
+                        <button class="console-ctrl-btn btn-ctrl-start" id="sim-btn-start">Start</button>
+                        <button class="console-ctrl-btn btn-ctrl-restart" id="sim-btn-restart">Restart</button>
+                        <button class="console-ctrl-btn btn-ctrl-stop" id="sim-btn-stop">Stop</button>
+                    </div>
+                </div>
+
+                <div class="console-terminal-body" id="sim-console-output">
+                    <!-- Logs populated via JavaScript -->
+                </div>
+
+                <form class="console-input-form" id="sim-console-form">
+                    <span class="console-prompt-symbol">&gt;</span>
+                    <input type="text" id="sim-console-input" class="console-text-input" placeholder="Type a command (e.g. /tps, /list, /say Hello, /help) and press Enter..." autocomplete="off">
+                    <button type="submit" class="console-submit-btn">Send</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Plans & Pricing Section -->
+        <section class="pricing-section" id="plans">
+            <div class="pricing-header-wrapper">
+                <div>
+                    <p class="section-label">Transparent Pricing</p>
+                    <h2 class="section-heading">Affordable Plans for Every Community</h2>
+                    <p class="section-desc">No hidden fees, no RAM throttling, no player limits. Upgrade or downgrade at any time with automated world persistence.</p>
+                </div>
+
+                <!-- Monthly vs Annual Toggle -->
+                <div class="billing-toggle-container">
+                    <span class="billing-toggle-label">Monthly</span>
+                    <label class="billing-switch">
+                        <input type="checkbox" class="billing-toggle-input">
+                        <span class="billing-slider"></span>
+                    </label>
+                    <span class="billing-toggle-label">Annual</span>
+                    <span class="discount-tag">20% OFF</span>
+                </div>
+            </div>
+
+            <div class="plan-grid">
+                <!-- 1GB Sapling -->
+                <div class="plan-card">
+                    <div class="plan-card-header">
+                        <h3>Sapling</h3>
+                        <p class="plan-card-desc">Ideal for small 1–3 player survival servers or proxy hubs.</p>
+                        <div class="plan-card-price">
+                            <span class="price-val" data-monthly="0.89">$0.89</span><span class="period billing-period-text">/mo</span>
+                        </div>
+                    </div>
+
+                    <ul class="plan-features-list">
+                        <li class="plan-feature-item">
+                            <img src="/svg/ram.svg" alt="RAM">
+                            <span><strong>1GB</strong> DDR5 Memory</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/cpu.svg" alt="CPU">
+                            <span><strong>1 vCPU</strong> Ryzen 9 7950X3D</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/storage.svg" alt="Disk">
+                            <span><strong>10GB</strong> Gen4 NVMe SSD</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/support.svg" alt="Support">
+                            <span>Instant Setup & Free Subdomain</span>
+                        </li>
+                    </ul>
+
+                    <a href="/checkout/?plan=Sapling&price=0.89&ram=1GB&cpu=1vCPU&disk=10GB" class="plan-buy-btn">
+                        Select Plan &rarr;
+                    </a>
+                </div>
+
+                <!-- 4GB Sapwood (Featured) -->
+                <div class="plan-card featured">
+                    <span class="plan-badge badge-popular">MOST POPULAR</span>
+                    <div class="plan-card-header">
+                        <h3>Sapwood</h3>
+                        <p class="plan-card-desc">Perfect balance for 15+ players, survival SMP, and plugins.</p>
+                        <div class="plan-card-price">
+                            <span class="price-val" data-monthly="3.49">$3.49</span><span class="period billing-period-text">/mo</span>
+                        </div>
+                    </div>
+
+                    <ul class="plan-features-list">
+                        <li class="plan-feature-item">
+                            <img src="/svg/ram.svg" alt="RAM">
+                            <span><strong>4GB</strong> DDR5 Memory</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/cpu.svg" alt="CPU">
+                            <span><strong>2 vCPU</strong> Ryzen 9 7950X3D</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/storage.svg" alt="Disk">
+                            <span><strong>40GB</strong> Gen4 NVMe SSD</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/support.svg" alt="Support">
+                            <span>Automated Daily Cloud Backups</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/support.svg" alt="Support">
+                            <span>Free MySQL DB + Mod Manager</span>
+                        </li>
+                    </ul>
+
+                    <a href="/checkout/?plan=Sapwood&price=3.49&ram=4GB&cpu=2vCPU&disk=40GB" class="plan-buy-btn">
+                        Select Plan &rarr;
+                    </a>
+                </div>
+
+                <!-- 8GB Canopy -->
+                <div class="plan-card">
+                    <div class="plan-card-header">
+                        <h3>Canopy</h3>
+                        <p class="plan-card-desc">Engineered for large modpacks, heavy plugins, and 40+ players.</p>
+                        <div class="plan-card-price">
+                            <span class="price-val" data-monthly="6.99">$6.99</span><span class="period billing-period-text">/mo</span>
+                        </div>
+                    </div>
+
+                    <ul class="plan-features-list">
+                        <li class="plan-feature-item">
+                            <img src="/svg/ram.svg" alt="RAM">
+                            <span><strong>8GB</strong> DDR5 Memory</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/cpu.svg" alt="CPU">
+                            <span><strong>3 vCPU</strong> Ryzen 9 7950X3D</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/storage.svg" alt="Disk">
+                            <span><strong>80GB</strong> Gen4 NVMe SSD</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/support.svg" alt="Support">
+                            <span>Priority 24/7 Support Channel</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/support.svg" alt="Support">
+                            <span>Full Modpack 1-Click Installer</span>
+                        </li>
+                    </ul>
+
+                    <a href="/checkout/?plan=Canopy&price=6.99&ram=8GB&cpu=3vCPU&disk=80GB" class="plan-buy-btn">
+                        Select Plan &rarr;
+                    </a>
+                </div>
+
+                <!-- Custom / More Plans -->
+                <div class="plan-card" style="border-color: var(--neon-purple);">
+                    <span class="plan-badge badge-custom">ALL 10 TIERS</span>
+                    <div class="plan-card-header">
+                        <h3>10+ Plan Tiers</h3>
+                        <p class="plan-card-desc">Need up to 20GB+ RAM or dedicated thread performance?</p>
+                        <div class="plan-card-price" style="color: var(--neon-purple-bright);">
+                            <span>Up to 20GB+</span>
+                        </div>
+                    </div>
+
+                    <ul class="plan-features-list">
+                        <li class="plan-feature-item">
+                            <img src="/svg/ram.svg" alt="RAM">
+                            <span><strong>1GB to 20GB+</strong> Configurations</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/cpu.svg" alt="CPU">
+                            <span><strong>Up to Dedicated</strong> vCPU Cores</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/storage.svg" alt="Disk">
+                            <span><strong>200GB+</strong> NVMe Fast Storage</span>
+                        </li>
+                        <li class="plan-feature-item">
+                            <img src="/svg/support.svg" alt="Support">
+                            <span>Custom Subdomain & Reverse Proxy</span>
+                        </li>
+                    </ul>
+
+                    <a href="/plan/mc/" class="plan-buy-btn" style="border-color: var(--neon-purple); color: var(--neon-purple-bright);">
+                        Explore All 10 Tiers &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hardware & Features Infrastructure -->
+        <section class="features-section">
+            <p class="section-label">Enterprise Hardware</p>
+            <h2 class="section-heading">Why Server Owners Choose Angkor</h2>
+            <p class="section-desc">We never compromise on server performance. Every server is deployed on top-tier server-grade hardware with dedicated allocations.</p>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>
+                    </div>
+                    <h3>5.7GHz Single-Core Boost</h3>
+                    <p>Powered by AMD Ryzen 9 7950X3D processors ensuring lightning-fast world generation, zero chunk stutter, and peak TPS.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>3.2+ Tbps Corero DDoS Shield</h3>
+                    <p>Automated layer-3, 4, and 7 real-time mitigation that filters malicious traffic without dropping your players or inflating ping.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    </div>
+                    <h3>Automated Daily Cloud Backups</h3>
+                    <p>Never lose your worlds. Enjoy automated snapshots with 1-click restore and full SFTP access to download your world anytime.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3>Instant 60-Second Setup</h3>
+                    <p>As soon as your order is confirmed, your server is automatically provisioned and ready for your first login in under a minute.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>Full Mod & Plugin Freedom</h3>
+                    <p>Run Paper, Purpur, Spigot, Forge, Fabric, Mohist, or Geyser Bedrock. Upload any custom JAR file or modpack with zero restrictions.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </div>
+                    <h3>24/7 Gamer-First Support</h3>
+                    <p>Real Minecraft server administrators ready to assist you on Discord, Telegram, and Email whenever you need configuration help.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison-section">
+            <p class="section-label">How We Stack Up</p>
+            <h2 class="section-heading">Angkor Hosting vs Traditional Hosts</h2>
+            <p class="section-desc">See why hundreds of gaming communities are switching to Angkor Hosting for unmatched price-to-performance.</p>
+
+            <div class="table-responsive">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="col-highlight">Angkor Hosting</th>
+                            <th>Traditional Budget Hosts</th>
+                            <th>Overpriced Premium Hosts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Price per GB RAM</td>
+                            <td class="col-highlight" style="color: var(--neon-mint); font-weight: 700;">From $0.87 / GB</td>
+                            <td>$1.50 - $2.50 / GB</td>
+                            <td>$3.00 - $6.00 / GB</td>
+                        </tr>
+                        <tr>
+                            <td>CPU Model</td>
+                            <td class="col-highlight">AMD Ryzen 9 7950X3D (5.7GHz)</td>
+                            <td>Older Xeon / i7 (Throttled)</td>
+                            <td>Ryzen 7 or Xeon E5</td>
+                        </tr>
+                        <tr>
+                            <td>Storage Type</td>
+                            <td class="col-highlight">PCIe Gen4 NVMe (7000 MB/s)</td>
+                            <td>SATA SSD (500 MB/s)</td>
+                            <td>Standard NVMe</td>
+                        </tr>
+                        <tr>
+                            <td>Player Slot Limit</td>
+                            <td class="col-highlight">Unlimited (No Restrictions)</td>
+                            <td>Artificially Capped</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>DDoS Mitigation</td>
+                            <td class="col-highlight">3.2+ Tbps Corero Path</td>
+                            <td>Basic / Drops under attack</td>
+                            <td>Standard OVH / Path</td>
+                        </tr>
+                        <tr>
+                            <td>Automated Backups</td>
+                            <td class="col-highlight">Included Free</td>
+                            <td>Paid Add-on ($3-$5/mo)</td>
+                            <td>Limited Slots</td>
+                        </tr>
+                        <tr>
+                            <td>Subdomain & MySQL</td>
+                            <td class="col-highlight">Included Free</td>
+                            <td>Paid Add-on</td>
+                            <td>Included</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Customer Testimonials -->
+        <section class="reviews-section">
+            <p class="section-label">Community Feedback</p>
+            <h2 class="section-heading">Loved by Server Owners Worldwide</h2>
+            <p class="section-desc">Join thousands of happy players, SMP owners, and network builders hosting on Angkor.</p>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Moved our 45-player Cobblemon SMP from another host to Angkor's 8GB Canopy plan. The lag spikes completely vanished, and the ping from Southeast Asia dropped by half!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">K</div>
+                        <div class="review-meta">
+                            <h5>Kosal Rath</h5>
+                            <p>Pixelmon SMP Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The price is unbeatable. $3.49 for 4GB RAM with actual Ryzen 9 cores is impossible to find elsewhere. Setup was instantaneous and Discord support is lightning fast."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">M</div>
+                        <div class="review-meta">
+                            <h5>Marcus Sterling</h5>
+                            <p>Survival Network Lead</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Pterodactyl panel makes managing plugins, startup parameters, and SFTP painless. Best hosting experience I've had in 6 years of running Minecraft servers."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">V</div>
+                        <div class="review-meta">
+                            <h5>Vannak S.</h5>
+                            <p>Modpack Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <p class="section-label">Help & Clarity</p>
+            <h2 class="section-heading">Frequently Asked Questions</h2>
+            <p class="section-desc">Everything you need to know about our plans, hardware, and server management.</p>
+
+            <div class="faq-search-wrapper">
+                <input type="text" id="faq-search-input" class="faq-search-bar" placeholder="Search questions (e.g., upgrade, mods, payment, ddos)...">
+            </div>
+
+            <div class="faq-accordion-list">
+                <div class="faq-accordion-item active">
+                    <div class="faq-header">
+                        <h4>How fast is server provisioning after ordering?</h4>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        Your game server is provisioned automatically within 60 seconds of order confirmation. You will receive an instant message and email containing your panel login URL, username, password, and server IP address.
+                    </div>
+                </div>
+
+                <div class="faq-accordion-item">
+                    <div class="faq-header">
+                        <h4>Can I upgrade or downgrade my plan without losing my world?</h4>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        Yes! You can easily upgrade or downgrade your RAM and CPU at any time from your account or by contacting support. Your world files, player inventories, plugin configs, and IP address will be seamlessly preserved.
+                    </div>
+                </div>
+
+                <div class="faq-accordion-item">
+                    <div class="faq-header">
+                        <h4>Can I install custom modpacks like All The Mods, Better MC, or Cobblemon?</h4>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        Absolutely. We support all server software including Forge, Fabric, NeoForge, Quilt, Paper, Purpur, Spigot, and BungeeCord. You can upload custom server JARs and full modpack zip files directly through the File Manager or SFTP.
+                    </div>
+                </div>
+
+                <div class="faq-accordion-item">
+                    <div class="faq-header">
+                        <h4>What payment methods do you support?</h4>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        We accept Credit/Debit Cards, PayPal, Crypto (USDT, BTC, ETH), ABA Bank / KHQR for local orders, and direct Discord/Telegram ticket payments with instant verification.
+                    </div>
+                </div>
+
+                <div class="faq-accordion-item">
+                    <div class="faq-header">
+                        <h4>How does your DDoS protection work?</h4>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-body">
+                        Our nodes are shielded by 3.2+ Tbps Corero Path DDoS mitigation appliances. Attacks are filtered inline within milliseconds without interrupting live game sessions or dropping player connections.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ready to Launch CTA -->
+        <section class="ready-cta-section">
+            <div class="ready-cta-card">
+                <h2>Ready to Launch Your Game Server?</h2>
+                <p>Deploy in less than 60 seconds with 24/7 staff support, automated backups, and 99.99% uptime guarantee.</p>
+                <div class="hero-cta-group" style="justify-content: center; margin-bottom: 0;">
+                    <a href="/plan/mc/" class="btn-hero-primary">
+                        <span>Get Started from $0.89/mo</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/tutorial/" class="btn-hero-secondary">Read Setup Tutorial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
     <footer>
-        <div class="angkor-hosting">
-            <a href="mailto:support@angkorhosting.store" class="footer-email">support@angkorhosting.store</a>
-            <div class="socials">
-                <a href="" class="social-link discord" aria-label="Discord"></a>
-                <a href="" class="social-link twitter" aria-label="Twitter / X"></a>
-                <a href="" class="social-link youtube" aria-label="YouTube"></a>
-                <a href="" class="social-link github" aria-label="GitHub"></a>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h4>Angkor<span class="brand-accent">Hosting</span></h4>
+                <p>Standard & Extreme performance game hosting built for reliability, ultra-low latency, and affordable pricing.</p>
+                <a href="mailto:support@angkorhosting.store" class="footer-email-link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    support@angkorhosting.store
+                </a>
+                <div class="social-links-bar">
+                    <a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener" class="social-btn" aria-label="Discord">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.01c.12.099.246.197.373.291a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.211 0 2.176 1.096 2.157 2.42 0 1.333-.955 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    </a>
+                    <a href="https://t.me/angkorhosting" target="_blank" rel="noopener" class="social-btn" aria-label="Telegram">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.91 3.79 20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.56-1.12.56l.4-5.68 10.34-9.36c.45-.4-.1-.62-.7-.22L7.9 13.27l-5.5-1.72c-1.2-.37-1.22-1.2.25-1.78L22.4 2.05c1-.37 1.87.24 1.5 1.74z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/angkorhosting" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter / X">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://github.com/IM-TVB/studio" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.089-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.304 3.495.997.107-.775.418-1.305.762-1.605-2.665-.303-5.467-1.334-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.604-.015 2.896-.015 3.286 0 .321.216.696.825.578C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h5>Products</h5>
+                <ul>
+                    <li><a href="/plan/mc/">Minecraft Java & Bedrock</a></li>
+                    <li><a href="/plan/mc/">Modpack Servers (Forge/Fabric)</a></li>
+                    <li><a href="#plans">Proxy & BungeeCord Hubs</a></li>
+                    <li><a href="#calculator">Custom RAM Sizing</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Support & Help</h5>
+                <ul>
+                    <li><a href="/tutorial/">Server Setup Tutorial</a></li>
+                    <li><a href="#faq">FAQ Knowledgebase</a></li>
+                    <li><a href="https://discord.gg/9vGv3yqg2k" target="_blank" rel="noopener">Discord Community Ticket</a></li>
+                    <li><a href="mailto:support@angkorhosting.store">Email Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Company & Legal</h5>
+                <ul>
+                    <li><a href="/terms/">Terms of Service</a></li>
+                    <li><a href="/privacy/">Privacy Policy</a></li>
+                    <li><a href="#plans">Server SLA Guarantee</a></li>
+                    <li><a href="https://github.com/IM-TVB/studio" target="_blank" rel="noopener">Open Source Repo</a></li>
+                </ul>
             </div>
         </div>
-        <div class="product">
-            <h4>Product</h4>
-            <ul>
-                <li><a href="/plan/mc/">Minecraft Hosting</a></li>
-                <li><a href="#plan">Web Hosting</a></li>
-                <li><a href="#plan">Pricing</a></li>
-            </ul>
-        </div>
-        <div class="support">
-            <h4>Support</h4>
-            <ul>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Status</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div class="company">
-            <h4>Company</h4>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="/terms/">Terms</a></li>
-                <li><a href="/privacy/">Privacy</a></li>
-            </ul>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angkor Hosting. All rights reserved. Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
+            <p>AMD Ryzen™ 9 7950X3D &bull; NVMe Gen4 &bull; Corero 3.2+ Tbps Protection</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="/c2/main.js"></script>
 </body>
 </html>
